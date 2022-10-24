@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace YugiohApp.view {
-    public partial class CardUserControl : UserControl {
+    public partial class CardDetailsUserControl : UserControl {
         private Image cardImage;
         private Card card;
-        public CardUserControl(Card parCard) {
+        public CardDetailsUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
             cardImage = Image.FromFile($"C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\cardImages\\{card.data[0].id}_image.jpg");
             pictureBoxCard.Image = cardImage;
-            
-        }
-
-        private void pictureBoxCard_MouseClick(object sender, MouseEventArgs e) {
-            YugiohForm yugiohForm = (YugiohForm)Form.ActiveForm;
-            yugiohForm.getPanelCard().Controls.Clear();
-            yugiohForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
+            labelName.Text = card.data[0].name;
+            labelDescription.Text = card.data[0].desc;
+            labelAtk.Text = "ATK/ " + card.data[0].atk.ToString();
+            labelDef.Text = "DEF/ " + card.data[0].def.ToString();
         }
     }
 }

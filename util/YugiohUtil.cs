@@ -64,14 +64,14 @@ namespace YugiohApp.util {
                 }
             }
         }
-        public static List<Card> getCardsByName(string cardJson, string cardNameSearch, Label labelFuzzRatio) {
+        public static List<Card> getCardsByName(string cardJson, string cardNameSearch) {
             List<Card> cardList = new List<Card>();
             Card cards = JsonConvert.DeserializeObject<Card>(cardJson, new JsonSerializerSettings { Error = handleDeserializationError });
             for (int i = 0; i < cards.data.Length; i++) {
                 Card currentCard = new Card(new Datum[] { cards.data[i] });
                 if (isSimilar(currentCard.data[0].name, cardNameSearch)) {
                     cardList.Add(currentCard);
-                    labelFuzzRatio.Text += currentCard.data[0].name + " : " + Fuzz.PartialRatio(currentCard.data[0].name, cardNameSearch).ToString() + "\n";
+                    //labelFuzzRatio.Text += currentCard.data[0].name + " : " + Fuzz.PartialRatio(currentCard.data[0].name, cardNameSearch).ToString() + "\n";
                 }
             }
             return cardList;
