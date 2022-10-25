@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace YugiohApp.view {
     public partial class CardUserControl : UserControl {
-        private Image cardImage;
-        private Card card;
+        public Image cardImage { get; set; }
+        public Card card { get; set; }
+        private static YugiohForm yugiohForm = (YugiohForm)Form.ActiveForm;
         public CardUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
@@ -21,9 +22,16 @@ namespace YugiohApp.view {
         }
 
         private void pictureBoxCard_MouseClick(object sender, MouseEventArgs e) {
-            YugiohForm yugiohForm = (YugiohForm)Form.ActiveForm;
             yugiohForm.getPanelCard().Controls.Clear();
             yugiohForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
+            yugiohForm.getLabelId().Text = card.data[0].id.ToString();
+            yugiohForm.selectedCard = card;
+        }
+
+        private void pictureBoxCard_MouseDoubleClick(object sender, MouseEventArgs e) {
+            /*CardUserControl cardUserControlToAdd = new CardUserControl(this.card);
+            cardUserControlToAdd.Size = new Size(74, 108);
+            yugiohForm.getFlowLayoutPanelDeck().Controls.Add(cardUserControlToAdd);*/
         }
     }
 }

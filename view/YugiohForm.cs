@@ -8,26 +8,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YugiohApp.model;
 using static YugiohApp.util.YugiohUtil;
 
 namespace YugiohApp.view {
     public partial class YugiohForm : Form {
-        private static string allCardsJson = File.ReadAllText("C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\cards\\allCards.json");
-        private List<Card> cardList;
+        private static string allCardsJson = "";
+        private List<Card> cardListSearchResult;
+        public Card selectedCard { get; set; }
         public YugiohForm() {
             InitializeComponent();
-
-            cardList = new List<Card>();
+            allCardsJson = File.ReadAllText("cards\\allCards.json");
+            cardListSearchResult = new List<Card>();
         }
         private void buttonSearch_Click(object sender, EventArgs e) {
-            if(textBoxSearch.Text != "") {
-                cardList = getCardsByName(allCardsJson, textBoxSearch.Text);
+            if (textBoxSearch.Text != "") {
+                cardListSearchResult = getCardsByName(allCardsJson, textBoxSearch.Text);
             }
-            //populateListView(dataGridViewCards, cardList);
-            populateFlowLayoutPanel(flowLayoutPanelCards, cardList);
+            populateFlowLayoutPanel(flowLayoutPanelCards, cardListSearchResult);
         }
         public Panel getPanelCard() {
             return this.panelCard;
+        }
+        public Label getLabelId() {
+            return this.labelId;
+        }
+        public FlowLayoutPanel getFlowLayoutPanelDeck() {
+            return this.flowLayoutPanelDeck;
+        }
+
+        private void YugiohForm_Load(object sender, EventArgs e) {
+            //MessageBox.Show(flowLayoutPanelDeck.Size.ToString());
+        }
+
+        private void buttonAddCard_Click(object sender, EventArgs e) {
+            Deck.getInstance().cardList.Add(selectedCard);
+            CardUserControl cardUserControlToAdd = new CardUserControl(selectedCard);
+            cardUserControlToAdd.Size = new Size(74, 108);
+            flowLayoutPanelDeck.Controls.Add(cardUserControlToAdd);
+        }
+
+        private void buttonRemoveCard_Click(object sender, EventArgs e) {
+            Deck.getInstance().cardList.Remove(selectedCard);
+            foreach(CardUserControl cardUserControl in flowLayoutPanelDeck.Controls) {
+                if (cardUserControl.card.data[0].id == selectedCard.data[0].id) {
+                    flowLayoutPanelDeck.Controls.Remove(cardUserControl);
+                    return;
+                }
+            }
         }
     }
 }
