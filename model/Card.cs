@@ -1,5 +1,4 @@
-﻿using YugiohApp.util;
-
+﻿using static YugiohApp.util.Util;
 public class Card {
     public Datum[] data { get; set; }
     public Card(Datum[] data) {
@@ -9,7 +8,7 @@ public class Card {
 
     }
     public Card(int cardId) {
-        this.data = Util.getCardForId(cardId).data;
+        this.data = getCardForId(cardId).data;
     }
 }
 public class Datum {

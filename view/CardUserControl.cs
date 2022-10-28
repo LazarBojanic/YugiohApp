@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using YugiohApp.util;
-
-namespace YugiohApp.view {
+﻿namespace YugiohApp.view {
     public partial class CardUserControl : UserControl {
         public Image cardImage { get; set; }
         public Card card { get; set; }

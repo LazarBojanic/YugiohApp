@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using YugiohApp.view;
+﻿using YugiohApp.view;
 
 namespace CSharp_SQL_App {
     internal static class Program {

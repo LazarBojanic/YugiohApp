@@ -1,19 +1,6 @@
-﻿using FuzzySharp;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Diagnostics;
-using YugiohApp.model;
-using YugiohApp.util;
+﻿using YugiohApp.model;
 using static YugiohApp.util.Util;
 using static YugiohApp.util.SqlUtil;
-using Process = System.Diagnostics.Process;
 
 namespace YugiohApp.view {
     public partial class DeckBuilderForm : Form {
@@ -63,11 +50,6 @@ namespace YugiohApp.view {
                     return;
                 }
             }
-        }
-        private void YugiohForm_FormClosing(object sender, FormClosingEventArgs e) {
-            foreach (Process process in Process.GetProcessesByName("YugiohApp")) {
-                process.Kill();
-            }          
         }
     }
 }

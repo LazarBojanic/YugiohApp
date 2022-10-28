@@ -1,8 +1,4 @@
-﻿using FuzzySharp;
-using Newtonsoft.Json;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Xml.Serialization;
+﻿using Newtonsoft.Json;
 using YugiohApp.view;
 
 namespace YugiohApp.util {

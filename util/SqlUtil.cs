@@ -1,7 +1,5 @@
 ﻿using System.Data;
 using System.Data.OleDb;
-using System.Globalization;
-using System.IO;
 using YugiohApp.view;
 
 namespace YugiohApp.util {

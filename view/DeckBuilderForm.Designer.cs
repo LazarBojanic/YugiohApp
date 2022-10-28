@@ -139,7 +139,6 @@
             this.Controls.Add(this.panelYugioh);
             this.Name = "DeckBuilderForm";
             this.Text = "YugiohForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YugiohForm_FormClosing);
             this.Load += new System.EventHandler(this.YugiohForm_Load);
             this.panelYugioh.ResumeLayout(false);
             this.panelYugioh.PerformLayout();
