@@ -26,8 +26,7 @@ namespace YugiohApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\bojan\\Desktop\\C#\\YugiohApp" +
-            "\\allCardsDB.accdb")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\\\..\\\\..\\\\..\\\\allCardsDB.accdb")]
         public string yugiohConnectionString {
             get {
                 return ((string)(this["yugiohConnectionString"]));
