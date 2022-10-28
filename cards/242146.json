@@ -1,1 +1,47 @@
-{"data":[{"id":242146,"name":"Ballista of Rampart Smashing","type":"Spell Card","desc":"If the equipped monster attacks a face-down Defense Position monster, it gains 1500 ATK during damage calculation only.","atk":0,"def":0,"level":0,"race":"Equip","attribute":null,"card_sets":[{"set_name":"Dark Revelation Volume 3","set_code":"DR3-EN106","set_rarity":"Common","set_rarity_code":"(C)","set_price":"1.37"},{"set_name":"Rise of Destiny","set_code":"RDS-EN046","set_rarity":"Common","set_rarity_code":"(C)","set_price":"1.02"}],"card_images":[{"id":242146,"image_url":"https://images.ygoprodeck.com/images/cards/242146.jpg","image_url_small":"https://images.ygoprodeck.com/images/cards_small/242146.jpg"}],"card_prices":[{"cardmarket_price":"0.11","tcgplayer_price":"0.08","ebay_price":"0.99","amazon_price":"0.25","coolstuffinc_price":"0.25"}]}]}
+{
+    "data": [
+        {
+            "id": 242146,
+            "name": "Ballista of Rampart Smashing",
+            "type": "Spell Card",
+            "desc": "If the equipped monster attacks a face-down Defense Position monster, it gains 1500 ATK during damage calculation only.",
+            "atk": 0,
+            "def": 0,
+            "level": 0,
+            "race": "Equip",
+            "attribute": null,
+            "card_sets": [
+                {
+                    "set_name": "Dark Revelation Volume 3",
+                    "set_code": "DR3-EN106",
+                    "set_rarity": "Common",
+                    "set_rarity_code": "(C)",
+                    "set_price": "1.37"
+                },
+                {
+                    "set_name": "Rise of Destiny",
+                    "set_code": "RDS-EN046",
+                    "set_rarity": "Common",
+                    "set_rarity_code": "(C)",
+                    "set_price": "1.02"
+                }
+            ],
+            "card_images": [
+                {
+                    "id": 242146,
+                    "image_url": "https://images.ygoprodeck.com/images/cards/242146.jpg",
+                    "image_url_small": "https://images.ygoprodeck.com/images/cards_small/242146.jpg"
+                }
+            ],
+            "card_prices": [
+                {
+                    "cardmarket_price": "0.11",
+                    "tcgplayer_price": "0.08",
+                    "ebay_price": "0.99",
+                    "amazon_price": "0.25",
+                    "coolstuffinc_price": "0.25"
+                }
+            ]
+        }
+    ]
+}

@@ -7,24 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YugiohApp.util;
 
 namespace YugiohApp.view {
     public partial class CardUserControl : UserControl {
         public Image cardImage { get; set; }
         public Card card { get; set; }
-        private static YugiohForm yugiohForm = (YugiohForm)Form.ActiveForm;
+        private static DeckBuilderForm yugiohForm = (DeckBuilderForm)Form.ActiveForm;
         public CardUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
-            cardImage = Image.FromFile($"C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\cardImages\\{card.data[0].id}_image.jpg");
-            pictureBoxCard.Image = cardImage;
-            
+            cardImage = Image.FromFile($"..\\..\\..\\..\\smallCardImages\\{card.data[0].id}_smallImage.png");
+            pictureBoxCard.Image = Util.pixelate((Bitmap)cardImage, 10);
+        }
+        public CardUserControl() {
+
         }
 
         private void pictureBoxCard_MouseClick(object sender, MouseEventArgs e) {
             yugiohForm.getPanelCard().Controls.Clear();
             yugiohForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
-            yugiohForm.getLabelId().Text = card.data[0].id.ToString();
             yugiohForm.selectedCard = card;
         }
 

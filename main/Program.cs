@@ -8,7 +8,8 @@ namespace CSharp_SQL_App {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new YugiohForm());
+            Application.Run(new MainForm());
+            Application.Exit();
         }
     }
 }

@@ -1,7 +1,15 @@
-﻿public class Card {
+﻿using YugiohApp.util;
+
+public class Card {
     public Datum[] data { get; set; }
     public Card(Datum[] data) {
         this.data = data;
+    }
+    public Card() {
+
+    }
+    public Card(int cardId) {
+        this.data = Util.getCardForId(cardId).data;
     }
 }
 public class Datum {
