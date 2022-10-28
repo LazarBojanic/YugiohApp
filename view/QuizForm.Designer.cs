@@ -28,14 +28,14 @@
             this.labelResult = new System.Windows.Forms.Label();
             this.buttonRevealMore = new System.Windows.Forms.Button();
             this.buttonConfirm = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelGuesses = new System.Windows.Forms.Panel();
             this.radioButtonGuessD = new System.Windows.Forms.RadioButton();
             this.radioButtonGuessC = new System.Windows.Forms.RadioButton();
             this.radioButtonGuessB = new System.Windows.Forms.RadioButton();
             this.radioButtonGuessA = new System.Windows.Forms.RadioButton();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.panelQuiz.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelGuesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.panelQuiz.Controls.Add(this.labelResult);
             this.panelQuiz.Controls.Add(this.buttonRevealMore);
             this.panelQuiz.Controls.Add(this.buttonConfirm);
-            this.panelQuiz.Controls.Add(this.panel1);
+            this.panelQuiz.Controls.Add(this.panelGuesses);
             this.panelQuiz.Controls.Add(this.pictureBoxCard);
             this.panelQuiz.Controls.Add(this.buttonPlay);
             this.panelQuiz.Location = new System.Drawing.Point(12, 12);
@@ -108,19 +108,19 @@
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
-            // panel1
+            // panelGuesses
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelGuesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.radioButtonGuessD);
-            this.panel1.Controls.Add(this.radioButtonGuessC);
-            this.panel1.Controls.Add(this.radioButtonGuessB);
-            this.panel1.Controls.Add(this.radioButtonGuessA);
-            this.panel1.Location = new System.Drawing.Point(202, 325);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 269);
-            this.panel1.TabIndex = 3;
+            this.panelGuesses.Controls.Add(this.radioButtonGuessD);
+            this.panelGuesses.Controls.Add(this.radioButtonGuessC);
+            this.panelGuesses.Controls.Add(this.radioButtonGuessB);
+            this.panelGuesses.Controls.Add(this.radioButtonGuessA);
+            this.panelGuesses.Location = new System.Drawing.Point(202, 325);
+            this.panelGuesses.Name = "panelGuesses";
+            this.panelGuesses.Size = new System.Drawing.Size(618, 269);
+            this.panelGuesses.TabIndex = 3;
             // 
             // radioButtonGuessD
             // 
@@ -203,7 +203,7 @@
             this.Text = "QuizForm";
             this.panelQuiz.ResumeLayout(false);
             this.panelQuiz.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.panelGuesses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,7 +214,7 @@
         private Button buttonPlay;
         private Panel panelQuiz;
         private PictureBox pictureBoxCard;
-        private Panel panel1;
+        private Panel panelGuesses;
         private RadioButton radioButtonGuessA;
         private RadioButton radioButtonGuessD;
         private RadioButton radioButtonGuessC;

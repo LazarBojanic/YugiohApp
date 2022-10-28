@@ -22,28 +22,20 @@ namespace YugiohApp.view {
         public static List<Card> allCardsList { get; set; }
         public Card selectedCard { get; set; }
         public string allCardSetsJson { get; set; }
-        public List<CustomCardSet> allCustomCardSets { get; set; }
         public DeckBuilderForm() {
             InitializeComponent();
-            allCardsJson = File.ReadAllText("..\\..\\..\\..\\cards\\allCards.json");
+            allCardsJson = File.ReadAllText($"{Properties.Settings.Default.cardsPath}allCards.json");
             allCardsList = getAllCardsList(allCardsJson);
-
-            /*allCardSetsJson = File.ReadAllText("C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\allCardSets.json");
-            Stream reader = new FileStream("C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\allCardSets.json", FileMode.Open);
-            Util.getAllCardSetsXml(reader);*/
-
             cardListSearchResult = new List<Card>();
         }
         private void buttonSearch_Click(object sender, EventArgs e) {
-            /*if (textBoxSearch.Text != "") {
-                cardListSearchResult = getCardsByName(allCardsJson, textBoxSearch.Text);
-            }
-            populateFlowLayoutPanel(flowLayoutPanelCards, cardListSearchResult);*/
+            buttonSearch.Enabled = false;
             flowLayoutPanelCards.SuspendLayout();
             if (!textBoxSearch.Text.Equals("")) {
                 fillSearchFlowLayoutPanel(textBoxSearch.Text, flowLayoutPanelCards);
             }
             flowLayoutPanelCards.ResumeLayout();
+            buttonSearch.Enabled = true;
         }
         public Panel getPanelCard() {
             return this.panelCard;
@@ -72,11 +64,6 @@ namespace YugiohApp.view {
                 }
             }
         }
-
-        private void buttonFillDatabase_Click(object sender, EventArgs e) {
-            labelCardsInserted.Text += updateCardSets(allCustomCardSets);
-        }
-
         private void YugiohForm_FormClosing(object sender, FormClosingEventArgs e) {
             foreach (Process process in Process.GetProcessesByName("YugiohApp")) {
                 process.Kill();

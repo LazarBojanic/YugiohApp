@@ -33,5 +33,41 @@ namespace YugiohApp.Properties {
                 return ((string)(this["yugiohConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\\\cards\\\\")]
+        public string cardsPath {
+            get {
+                return ((string)(this["cardsPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\\\cardImages\\\\")]
+        public string cardImagesPath {
+            get {
+                return ((string)(this["cardImagesPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\\\smallCardImages\\\\")]
+        public string smallCardImagesPath {
+            get {
+                return ((string)(this["smallCardImagesPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\sounds\\\\")]
+        public string soundsPath {
+            get {
+                return ((string)(this["soundsPath"]));
+            }
+        }
     }
 }

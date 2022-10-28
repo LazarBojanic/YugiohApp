@@ -1,5 +1,4 @@
-﻿using Aspose.Imaging.FileFormats.Cdr;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,11 +26,17 @@ namespace YugiohApp.view {
         private Image cardImage;
         public QuizForm() {
             InitializeComponent();
-            allCardsJson = File.ReadAllText("..\\..\\..\\..\\cards\\allCards.json");
+            panelGuesses.Enabled = false;
+            buttonRevealMore.Enabled = false;
+            buttonConfirm.Enabled = false;
+            allCardsJson = File.ReadAllText($"{Properties.Settings.Default.cardsPath}allCards.json");
             allCardsList = Util.getAllCardsList(allCardsJson);
             random = new Random();
         }
         private void buttonPlay_Click(object sender, EventArgs e) {
+            panelGuesses.Enabled = true;
+            buttonRevealMore.Enabled = true;
+            buttonConfirm.Enabled = true;
             playRound();
         }
         public static List<string> getShuffledList(List<string> guessesList) {
@@ -76,7 +81,7 @@ namespace YugiohApp.view {
             if (usersGuess.Equals(cardToGuess.data[0].name)) {
                 panelQuiz.Enabled = false;
                 labelResult.Text = "Result: Correct!";
-                SoundPlayer soundPlayer = new SoundPlayer("..\\..\\..\\..\\winSound.wav");
+                SoundPlayer soundPlayer = new SoundPlayer($"{Properties.Settings.Default.soundsPath}winSound.wav");
                 soundPlayer.Play();
                 await Task.Delay(10000);
                 soundPlayer.Stop();
@@ -103,7 +108,7 @@ namespace YugiohApp.view {
             i = 7;
             guessesList = new List<string>();
             cardToGuess = allCardsList[random.Next(allCardsList.Count)];
-            cardImage = Image.FromFile($"..\\..\\..\\..\\cardImages\\{cardToGuess.data[0].id}_image.jpg");
+            cardImage = Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{cardToGuess.data[0].id}_image.jpg");
             pictureBoxCard.Image = Util.pixelate((Bitmap)cardImage, i);
 
             guessA = cardToGuess.data[0].name;

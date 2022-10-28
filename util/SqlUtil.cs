@@ -61,7 +61,6 @@ namespace YugiohApp.util {
             catch (OleDbException ex) {
                 MessageBox.Show(ex.Message);
             }
-            MessageBox.Show("Done");
         }
         public static int fillCardSetForCardTable(List<Card> allCardsList) {
             int cardSetsForCardsAdded = 0;
@@ -123,19 +122,6 @@ namespace YugiohApp.util {
             connection.Close();
             return cardSetsAdded;
         }
-        public static List<Card_Sets> getListOfCardSets(List<Card> allCardsList) {
-            List<Card_Sets> listOfCardSets = new List<Card_Sets>();
-            foreach (Card card in allCardsList) {
-                if (card.data[0].card_sets != null) {
-                    for (int i = 0; i < card.data[0].card_sets.Length; i++) {
-                        if (!listOfCardSets.Exists(x => x.set_code == card.data[0].card_sets[i].set_code)) {
-                            listOfCardSets.Add(card.data[0].card_sets[i]);
-                        }
-                    }
-                }
-            }
-            return listOfCardSets;
-        }
         public static int updateCardPrices(List<Card> allCardsList) {
             int cardSetsUpdated = 0;
             OleDbConnection connection = getConnection();
@@ -159,32 +145,6 @@ namespace YugiohApp.util {
                     cardSetsUpdated += command.ExecuteNonQuery();
                 }
                 catch (OleDbException ex) {
-                    MessageBox.Show(ex.Message);
-                }
-                command.Dispose();
-            }
-            connection.Close();
-            MessageBox.Show("Done");
-            return cardSetsUpdated;
-        }
-
-        public static int updateCardSets(List<CustomCardSet> allCardSetsList) {
-            int cardSetsUpdated = 0;
-            OleDbConnection connection = getConnection();
-            connection.Open();
-            string query = "UPDATE [cardSet] SET " +
-                "[cardSetNumOfCards] = @cardSetNumOfCards, " +
-                "[cardSetTCGDate] = @cardSetTCGDate " +
-                "WHERE [cardSetCode] = @cardSetCode";
-            foreach (CustomCardSet customCardSet in allCardSetsList) {
-                OleDbCommand command = new OleDbCommand(query, connection);
-                try {
-                    //command.Parameters.AddWithValue("@cardSetNumOfCards", Convert.ToInt32(customCardSet.customCardSetData[0].num_of_cards));
-                    //command.Parameters.AddWithValue("@cardSetTCGDate", DateTime.ParseExact(customCardSet.customCardSetData[0].tcg_date, "yyyyMMdd", CultureInfo.InvariantCulture));
-                    //command.Parameters.AddWithValue("@cardSetCode", customCardSet.customCardSetData[0].set_code);
-                    cardSetsUpdated += command.ExecuteNonQuery();
-                }
-                catch (Exception ex) {
                     MessageBox.Show(ex.Message);
                 }
                 command.Dispose();

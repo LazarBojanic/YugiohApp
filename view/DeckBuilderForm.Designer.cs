@@ -24,8 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.panelYugioh = new System.Windows.Forms.Panel();
-            this.labelCardsInserted = new System.Windows.Forms.Label();
-            this.buttonFillDatabase = new System.Windows.Forms.Button();
             this.buttonRemoveCard = new System.Windows.Forms.Button();
             this.buttonAddCard = new System.Windows.Forms.Button();
             this.flowLayoutPanelDeck = new System.Windows.Forms.FlowLayoutPanel();
@@ -41,8 +39,6 @@
             this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelYugioh.Controls.Add(this.labelCardsInserted);
-            this.panelYugioh.Controls.Add(this.buttonFillDatabase);
             this.panelYugioh.Controls.Add(this.buttonRemoveCard);
             this.panelYugioh.Controls.Add(this.buttonAddCard);
             this.panelYugioh.Controls.Add(this.flowLayoutPanelDeck);
@@ -56,33 +52,11 @@
             this.panelYugioh.Size = new System.Drawing.Size(1240, 657);
             this.panelYugioh.TabIndex = 0;
             // 
-            // labelCardsInserted
-            // 
-            this.labelCardsInserted.AutoSize = true;
-            this.labelCardsInserted.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCardsInserted.Location = new System.Drawing.Point(962, 39);
-            this.labelCardsInserted.Name = "labelCardsInserted";
-            this.labelCardsInserted.Size = new System.Drawing.Size(161, 24);
-            this.labelCardsInserted.TabIndex = 16;
-            this.labelCardsInserted.Text = "Cards Inserted:";
-            // 
-            // buttonFillDatabase
-            // 
-            this.buttonFillDatabase.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonFillDatabase.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonFillDatabase.Location = new System.Drawing.Point(981, 66);
-            this.buttonFillDatabase.Name = "buttonFillDatabase";
-            this.buttonFillDatabase.Size = new System.Drawing.Size(119, 41);
-            this.buttonFillDatabase.TabIndex = 15;
-            this.buttonFillDatabase.Text = "Fill Database";
-            this.buttonFillDatabase.UseVisualStyleBackColor = true;
-            this.buttonFillDatabase.Click += new System.EventHandler(this.buttonFillDatabase_Click);
-            // 
             // buttonRemoveCard
             // 
             this.buttonRemoveCard.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonRemoveCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonRemoveCard.Location = new System.Drawing.Point(981, 113);
+            this.buttonRemoveCard.Location = new System.Drawing.Point(981, 36);
             this.buttonRemoveCard.Name = "buttonRemoveCard";
             this.buttonRemoveCard.Size = new System.Drawing.Size(70, 41);
             this.buttonRemoveCard.TabIndex = 14;
@@ -94,7 +68,7 @@
             // 
             this.buttonAddCard.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonAddCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddCard.Location = new System.Drawing.Point(1057, 113);
+            this.buttonAddCard.Location = new System.Drawing.Point(1057, 36);
             this.buttonAddCard.Name = "buttonAddCard";
             this.buttonAddCard.Size = new System.Drawing.Size(43, 41);
             this.buttonAddCard.TabIndex = 13;
@@ -130,9 +104,9 @@
             this.flowLayoutPanelCards.AutoScroll = true;
             this.flowLayoutPanelCards.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelCards.Location = new System.Drawing.Point(1106, 160);
+            this.flowLayoutPanelCards.Location = new System.Drawing.Point(1106, 82);
             this.flowLayoutPanelCards.Name = "flowLayoutPanelCards";
-            this.flowLayoutPanelCards.Size = new System.Drawing.Size(131, 492);
+            this.flowLayoutPanelCards.Size = new System.Drawing.Size(131, 570);
             this.flowLayoutPanelCards.TabIndex = 9;
             this.flowLayoutPanelCards.WrapContents = false;
             // 
@@ -149,7 +123,7 @@
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonSearch.Location = new System.Drawing.Point(1106, 113);
+            this.buttonSearch.Location = new System.Drawing.Point(1106, 36);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(131, 41);
             this.buttonSearch.TabIndex = 5;
@@ -157,13 +131,13 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // YugiohForm
+            // DeckBuilderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panelYugioh);
-            this.Name = "YugiohForm";
+            this.Name = "DeckBuilderForm";
             this.Text = "YugiohForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YugiohForm_FormClosing);
             this.Load += new System.EventHandler(this.YugiohForm_Load);
@@ -183,7 +157,5 @@
         private FlowLayoutPanel flowLayoutPanelDeck;
         private Button buttonAddCard;
         private Button buttonRemoveCard;
-        private Button buttonFillDatabase;
-        private Label labelCardsInserted;
     }
 }

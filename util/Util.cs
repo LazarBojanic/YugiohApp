@@ -7,7 +7,7 @@ using YugiohApp.view;
 
 namespace YugiohApp.util {
     public static class Util {
-        public static async Task<string> getCustomQueryResult(HttpClient client, string query) {
+        /*public static async Task<string> getCustomQueryResult(HttpClient client, string query) {
             string responseBody = "";
             try {
                 using HttpResponseMessage response = await client.GetAsync(query);
@@ -19,9 +19,9 @@ namespace YugiohApp.util {
                 Console.WriteLine("Message :{0} ", e.Message);
             }
             return responseBody;
-        }
+        }*/
 
-        public static async Task downloadAllCardImages(HttpClient client, string cardJson, string directoryPath) {
+        /*public static async Task downloadAllCardImages(HttpClient client, string cardJson, string directoryPath) {
             Card cards = JsonConvert.DeserializeObject<Card>(cardJson, new JsonSerializerSettings { Error = handleDeserializationError });
             for (int i = 0; i < cards.data.Length; i++) {
                 Card currentCard = new Card(new Datum[] { cards.data[i] });
@@ -37,20 +37,20 @@ namespace YugiohApp.util {
                 await File.WriteAllBytesAsync(path, imageBytes);
                 Thread.Sleep(3000);
             }
-        }
-        public static async Task downloadAllCards(string cardJson) {
+        }*/
+        /*public static async Task downloadAllCards(string cardJson) {
             Card cards = JsonConvert.DeserializeObject<Card>(cardJson, new JsonSerializerSettings { Error = handleDeserializationError });
             for (int i = 0; i < cards.data.Length; i++) {
                 Card currentCard = new Card(new Datum[] { cards.data[i] });
                 string currentCardJson = JsonConvert.SerializeObject(currentCard);
                 await File.WriteAllTextAsync("C:\\Users\\bojan\\Desktop\\C#\\Programming\\cards\\" + currentCard.data[0].id + ".json", currentCardJson);
             }
-        }
+        }*/
         public static void handleDeserializationError(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs errorArgs) {
             string currentError = errorArgs.ErrorContext.Error.Message;
             errorArgs.ErrorContext.Handled = true;
         }
-        public static void checkAllCards(string[] allCardFiles, string[] allCardImageFiles) {
+        /*public static void checkAllCards(string[] allCardFiles, string[] allCardImageFiles) {
             bool found = false;
             foreach (string cardFile in allCardFiles) {
                 foreach (string cardImageFile in allCardImageFiles) {
@@ -65,8 +65,8 @@ namespace YugiohApp.util {
                     Console.WriteLine($"Not found {Path.GetFileNameWithoutExtension(cardFile)}");
                 }
             }
-        }
-        public static List<Card> getCardsByName(string allCardsJson, string cardNameSearch) {
+        }*/
+        /*public static List<Card> getCardsByName(string allCardsJson, string cardNameSearch) {
             List<Card> cardList = new List<Card>();
             Card allCards = JsonConvert.DeserializeObject<Card>(allCardsJson, new JsonSerializerSettings { Error = handleDeserializationError });
             for (int i = 0; i < allCards.data.Length; i++) {
@@ -76,7 +76,7 @@ namespace YugiohApp.util {
                 }
             }
             return cardList;
-        }
+        }*/
         public static List<Card> getAllCardsList(string allCardsJson) {
             List<Card> cardList = new List<Card>();
             Card allCards = JsonConvert.DeserializeObject<Card>(allCardsJson, new JsonSerializerSettings { Error = handleDeserializationError });
@@ -108,7 +108,7 @@ namespace YugiohApp.util {
             return allCardSetsList;
         }*/
 
-        public static bool isSimilar(string cardName, string cardNameSearch) {
+        /*public static bool isSimilar(string cardName, string cardNameSearch) {
             string simpleCardNameSearch = getSimpleCardName(cardNameSearch);
             string simpleCardName = getSimpleCardName(cardName);
             bool isSimilar = false;
@@ -118,8 +118,8 @@ namespace YugiohApp.util {
                 isSimilar = true;
             }
             return isSimilar;
-        }
-        public static string getSimpleCardName(string cardName) {
+        }*/
+        /*public static string getSimpleCardName(string cardName) {
             string simpleCardName = cardName;
             if (simpleCardName.Contains("_")) {
                 simpleCardName = simpleCardName.Replace("_", "");
@@ -140,19 +140,19 @@ namespace YugiohApp.util {
                 simpleCardName = simpleCardName.Replace(" ", "");
             }
             return simpleCardName.ToLower();
-        }
-        public static void populateFlowLayoutPanel(FlowLayoutPanel flowLayoutPanel, List<Card> cardList) {
+        }*/
+        /*public static void populateFlowLayoutPanel(FlowLayoutPanel flowLayoutPanel, List<Card> cardList) {
             flowLayoutPanel.Controls.Clear();
             foreach (Card card in cardList) {
                 flowLayoutPanel.Controls.Add(new CardUserControl(card));
             }
-        }
-        public static void populatePanel(Panel panel, List<Card> cardList) {
+        }*/
+        /*public static void populatePanel(Panel panel, List<Card> cardList) {
             foreach (Card card in cardList) {
                 panel.Controls.Add(new CardUserControl(card));
             }
-        }
-        public static Card getCardWithMaxDescLength(List<Card> allCardsList) {
+        }*/
+        /*public static Card getCardWithMaxDescLength(List<Card> allCardsList) {
             int max = 0;
             int foundId = 0;
             Card foundCard = new Card();
@@ -168,7 +168,7 @@ namespace YugiohApp.util {
                 }
             }
             return foundCard;
-        }
+        }*/
         public static Card getCardForId(int cardId) {
             foreach(Card card in DeckBuilderForm.allCardsList) {
                 if (card.data[0].id == cardId) {
@@ -177,25 +177,7 @@ namespace YugiohApp.util {
             }
             return new Card();
         }
-        public static void resizeImages() {
-            string[] files = Directory.GetFiles("C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\bin\\cardjson\\net6.0-windows\\cardImages");
-            foreach(string filePath in files) {
-                string cardId = Path.GetFileNameWithoutExtension(filePath).Substring(0, Path.GetFileNameWithoutExtension(filePath).IndexOf('_'));
-                /*using (Image image = Image.Load(filePath)) {
-                    ImageResizeSettings imageResizeSettings = new ImageResizeSettings { Mode = ResizeType.Mitchell, FilterType = ImageFilterType.SmallRectangular };
-                    image.Resize(99, 144, imageResizeSettings);
-                    image.Save($"C:\\Users\\bojan\\Desktop\\smallCardImages\\{cardId}_small_image.png", new Aspose.Imaging.ImageOptions.PngOptions());
-                }*/
-                using(Image image = Image.FromFile(filePath)) {
-                    using(Image resizedImage = getResizedImage(image, 99, 144)) {
-                        resizedImage.Save($"C:\\Users\\bojan\\Desktop\\smallCardImages\\{cardId}_smallImage.png", ImageFormat.Png);
-                    }
-                }
-                
-            }
-            MessageBox.Show("Success");
-        }
-        public static Image getResizedImage(Image imgPhoto, int Width, int Height) {
+        /*public static Image getResizedImage(Image imgPhoto, int Width, int Height) {
             int sourceWidth = imgPhoto.Width;
             int sourceHeight = imgPhoto.Height;
             int sourceX = 0;
@@ -225,7 +207,7 @@ namespace YugiohApp.util {
             grPhoto.DrawImage(imgPhoto, new Rectangle(destX, destY, destWidth, destHeight), new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight), GraphicsUnit.Pixel);
             grPhoto.Dispose();
             return bmPhoto;
-        }
+        }*/
         public static Bitmap pixelate(Bitmap image, int pixelateSize) {
             Rectangle rectangle = new Rectangle(0, 0, image.Width, image.Height);
             Bitmap pixelated = new Bitmap(image.Width, image.Height);
@@ -257,5 +239,18 @@ namespace YugiohApp.util {
 
             return pixelated;
         }
+        /*public static List<Card_Sets> getListOfCardSets(List<Card> allCardsList) {
+            List<Card_Sets> listOfCardSets = new List<Card_Sets>();
+            foreach (Card card in allCardsList) {
+                if (card.data[0].card_sets != null) {
+                    for (int i = 0; i < card.data[0].card_sets.Length; i++) {
+                        if (!listOfCardSets.Exists(x => x.set_code == card.data[0].card_sets[i].set_code)) {
+                            listOfCardSets.Add(card.data[0].card_sets[i]);
+                        }
+                    }
+                }
+            }
+            return listOfCardSets;
+        }*/
     }
 }

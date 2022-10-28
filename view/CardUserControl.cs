@@ -17,8 +17,8 @@ namespace YugiohApp.view {
         public CardUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
-            cardImage = Image.FromFile($"..\\..\\..\\..\\smallCardImages\\{card.data[0].id}_smallImage.png");
-            pictureBoxCard.Image = Util.pixelate((Bitmap)cardImage, 10);
+            cardImage = Image.FromFile($"{Properties.Settings.Default.smallCardImagesPath}{card.data[0].id}_smallImage.png");
+            pictureBoxCard.Image = cardImage;
         }
         public CardUserControl() {
 

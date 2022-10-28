@@ -15,7 +15,7 @@ namespace YugiohApp.view {
         public CardDetailsUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
-            cardImage = Image.FromFile($"..\\..\\..\\..\\cardImages\\{card.data[0].id}_image.jpg");
+            cardImage = Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{card.data[0].id}_image.jpg");
             pictureBoxCard.Image = cardImage;
             labelName.Text = card.data[0].name;
             labelDescription.Text = card.data[0].desc;
