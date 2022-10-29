@@ -1,22 +1,22 @@
-﻿namespace YugiohApp.view {
+﻿using YugiohApp.model;
+
+namespace YugiohApp.view {
     public partial class CardUserControl : UserControl {
-        public Image cardImage { get; set; }
         public Card card { get; set; }
-        private static DeckBuilderForm yugiohForm = (DeckBuilderForm)Form.ActiveForm;
+        private static DeckBuilderForm deckBuilderForm = (DeckBuilderForm)Form.ActiveForm;
         public CardUserControl(Card parCard) {
             InitializeComponent();
             this.card = parCard;
-            cardImage = Image.FromFile($"{Properties.Settings.Default.smallCardImagesPath}{card.data[0].id}_smallImage.png");
-            pictureBoxCard.Image = cardImage;
+            pictureBoxCard.Image = card.image;
         }
         public CardUserControl() {
 
         }
 
         private void pictureBoxCard_MouseClick(object sender, MouseEventArgs e) {
-            yugiohForm.getPanelCard().Controls.Clear();
-            yugiohForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
-            yugiohForm.selectedCard = card;
+            deckBuilderForm.getPanelCard().Controls.Clear();
+            deckBuilderForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
+            deckBuilderForm.selectedCard = card;
         }
 
         private void pictureBoxCard_MouseDoubleClick(object sender, MouseEventArgs e) {

@@ -1,46 +1,48 @@
-﻿using static YugiohApp.util.Util;
-public class Card {
-    public Datum[] data { get; set; }
-    public Card(Datum[] data) {
-        this.data = data;
-    }
-    public Card() {
+﻿namespace YugiohApp.model {
+    public class Card {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
+        public string desc { get; set; }
+        public int atk { get; set; }
+        public int def { get; set; }
+        public int level { get; set; }
+        public string race { get; set; }
+        public string attribute { get; set; }
+        public List<CardSet> cardSets { get; set; }
+        public decimal priceCardMarket { get; set; }
+        public decimal priceTCGPlayer { get; set; }
+        public decimal priceEbay { get; set; }
+        public decimal priceAmazon { get; set; }
+        public decimal priceCoolStuffInc { get; set; }
+        public Image image { get; set; }
+        public Image smallImage { get; set; }
+        public Card(int id, string name, string type, string desc, int atk, int def, int level, string race, string attribute, List<CardSet> cardSets, decimal priceCardMarket, decimal priceTCGPlayer, decimal priceEbay, decimal priceAmazon, decimal priceCoolStuffInc) {
+            this.id = id;
+            this.name = name;
+            this.type = type;
+            this.desc = desc;
+            this.atk = atk;
+            this.def = def;
+            this.level = level;
+            this.race = race;
+            this.attribute = attribute;
+            this.cardSets = cardSets;
+            this.priceCardMarket = priceCardMarket;
+            this.priceTCGPlayer = priceTCGPlayer;
+            this.priceEbay = priceEbay;
+            this.priceAmazon = priceAmazon;
+            this.priceCoolStuffInc = priceCoolStuffInc;
+        }
+        public Card() {
 
+        }
+        public void loadImage() {
+            image = Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{id}_image.jpg");
+
+        }
+        public void loadSmallImage() {
+            smallImage = Image.FromFile($"{Properties.Settings.Default.smallCardImagesPath}{id}_smallImage.png");
+        }
     }
-    public Card(int cardId) {
-        this.data = getCardForId(cardId).data;
-    }
-}
-public class Datum {
-    public int id { get; set; }
-    public string name { get; set; }
-    public string type { get; set; }
-    public string desc { get; set; }
-    public int atk { get; set; }
-    public int def { get; set; }
-    public int level { get; set; }
-    public string race { get; set; }
-    public string attribute { get; set; }
-    public Card_Sets[] card_sets { get; set; }
-    public Card_Images[] card_images { get; set; }
-    public Card_Prices[] card_prices { get; set; }
-}
-public class Card_Sets {
-    public string set_name { get; set; }
-    public string set_code { get; set; }
-    public string set_rarity { get; set; }
-    public string set_rarity_code { get; set; }
-    public string set_price { get; set; }
-}
-public class Card_Images {
-    public int id { get; set; }
-    public string image_url { get; set; }
-    public string image_url_small { get; set; }
-}
-public class Card_Prices {
-    public string cardmarket_price { get; set; }
-    public string tcgplayer_price { get; set; }
-    public string ebay_price { get; set; }
-    public string amazon_price { get; set; }
-    public string coolstuffinc_price { get; set; }
 }

@@ -24,6 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.panelYugioh = new System.Windows.Forms.Panel();
+            this.labelSQLTime = new System.Windows.Forms.Label();
+            this.labelJsonTime = new System.Windows.Forms.Label();
+            this.labelSQLResult = new System.Windows.Forms.Label();
+            this.buttonSQL = new System.Windows.Forms.Button();
             this.buttonRemoveCard = new System.Windows.Forms.Button();
             this.buttonAddCard = new System.Windows.Forms.Button();
             this.flowLayoutPanelDeck = new System.Windows.Forms.FlowLayoutPanel();
@@ -39,6 +43,10 @@
             this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelYugioh.Controls.Add(this.labelSQLTime);
+            this.panelYugioh.Controls.Add(this.labelJsonTime);
+            this.panelYugioh.Controls.Add(this.labelSQLResult);
+            this.panelYugioh.Controls.Add(this.buttonSQL);
             this.panelYugioh.Controls.Add(this.buttonRemoveCard);
             this.panelYugioh.Controls.Add(this.buttonAddCard);
             this.panelYugioh.Controls.Add(this.flowLayoutPanelDeck);
@@ -51,6 +59,47 @@
             this.panelYugioh.Name = "panelYugioh";
             this.panelYugioh.Size = new System.Drawing.Size(1240, 657);
             this.panelYugioh.TabIndex = 0;
+            // 
+            // labelSQLTime
+            // 
+            this.labelSQLTime.AutoSize = true;
+            this.labelSQLTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSQLTime.Location = new System.Drawing.Point(819, 48);
+            this.labelSQLTime.Name = "labelSQLTime";
+            this.labelSQLTime.Size = new System.Drawing.Size(64, 17);
+            this.labelSQLTime.TabIndex = 18;
+            this.labelSQLTime.Text = "SQL Time";
+            // 
+            // labelJsonTime
+            // 
+            this.labelJsonTime.AutoSize = true;
+            this.labelJsonTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelJsonTime.Location = new System.Drawing.Point(672, 48);
+            this.labelJsonTime.Name = "labelJsonTime";
+            this.labelJsonTime.Size = new System.Drawing.Size(69, 17);
+            this.labelJsonTime.TabIndex = 17;
+            this.labelJsonTime.Text = "Json Time";
+            // 
+            // labelSQLResult
+            // 
+            this.labelSQLResult.AutoSize = true;
+            this.labelSQLResult.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSQLResult.Location = new System.Drawing.Point(1018, 137);
+            this.labelSQLResult.Name = "labelSQLResult";
+            this.labelSQLResult.Size = new System.Drawing.Size(45, 17);
+            this.labelSQLResult.TabIndex = 16;
+            this.labelSQLResult.Text = "Result";
+            // 
+            // buttonSQL
+            // 
+            this.buttonSQL.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSQL.Location = new System.Drawing.Point(981, 83);
+            this.buttonSQL.Name = "buttonSQL";
+            this.buttonSQL.Size = new System.Drawing.Size(119, 41);
+            this.buttonSQL.TabIndex = 15;
+            this.buttonSQL.Text = "SQL";
+            this.buttonSQL.UseVisualStyleBackColor = true;
+            this.buttonSQL.Click += new System.EventHandler(this.buttonSQL_Click);
             // 
             // buttonRemoveCard
             // 
@@ -156,5 +205,9 @@
         private FlowLayoutPanel flowLayoutPanelDeck;
         private Button buttonAddCard;
         private Button buttonRemoveCard;
+        private Button buttonSQL;
+        private Label labelSQLResult;
+        private Label labelSQLTime;
+        private Label labelJsonTime;
     }
 }

@@ -5,14 +5,14 @@ namespace YugiohApp.view {
     public partial class QuizForm : Form {
         private static string usersGuess = "";
         private Random random;
-        private Card cardToGuess;
+        private JsonCard cardToGuess;
         private string guessA;
         private string guessB;
         private string guessC;
         private string guessD;
         private List<string> guessesList;
         private string allCardsJson;
-        private List<Card> allCardsList;
+        private List<JsonCard> allCardsList;
         private static int i = 7;
         private Image cardImage;
         public QuizForm() {

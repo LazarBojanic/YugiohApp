@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Globalization;
+using YugiohApp.model;
 using YugiohApp.view;
 
 namespace YugiohApp.util {
@@ -73,11 +75,11 @@ namespace YugiohApp.util {
             }
             return cardList;
         }*/
-        public static List<Card> getAllCardsList(string allCardsJson) {
-            List<Card> cardList = new List<Card>();
-            Card allCards = JsonConvert.DeserializeObject<Card>(allCardsJson, new JsonSerializerSettings { Error = handleDeserializationError });
+        public static List<JsonCard> getAllCardsList(string allCardsJson) {
+            List<JsonCard> cardList = new List<JsonCard>();
+            JsonCard allCards = JsonConvert.DeserializeObject<JsonCard>(allCardsJson, new JsonSerializerSettings { Error = handleDeserializationError });
             for (int i = 0; i < allCards.data.Length; i++) {
-                Card card = new Card(new Datum[] { allCards.data[i] });
+                JsonCard card = new JsonCard(new Datum[] { allCards.data[i] });
                 cardList.Add(card);
             }
             return cardList;
@@ -165,13 +167,13 @@ namespace YugiohApp.util {
             }
             return foundCard;
         }*/
-        public static Card getCardForId(int cardId) {
-            foreach(Card card in DeckBuilderForm.allCardsList) {
+        public static JsonCard getCardForId(int cardId) {
+            foreach(JsonCard card in DeckBuilderForm.allCardsListFromJson) {
                 if (card.data[0].id == cardId) {
                     return card;
                 }
             }
-            return new Card();
+            return new JsonCard();
         }
         /*public static Image getResizedImage(Image imgPhoto, int Width, int Height) {
             int sourceWidth = imgPhoto.Width;
@@ -235,18 +237,87 @@ namespace YugiohApp.util {
 
             return pixelated;
         }
-        /*public static List<Card_Sets> getListOfCardSets(List<Card> allCardsList) {
+        public static List<Card_Sets> getListOfCardSets(List<JsonCard> allCardsList) {
             List<Card_Sets> listOfCardSets = new List<Card_Sets>();
-            foreach (Card card in allCardsList) {
-                if (card.data[0].card_sets != null) {
+            foreach (JsonCard card in allCardsList) {
+                if (card.data[0].card_sets != null && card.data[0].card_sets.Length > 0) {
                     for (int i = 0; i < card.data[0].card_sets.Length; i++) {
-                        if (!listOfCardSets.Exists(x => x.set_code == card.data[0].card_sets[i].set_code)) {
+                        /*if (!listOfCardSets.Exists(x => x.set_code == card.data[0].card_sets[i].set_code)) {
+                            listOfCardSets.Add(card.data[0].card_sets[i]);
+                        }*/
+                        if (!codeExists(listOfCardSets, card.data[0].card_sets[i].set_code)) {
                             listOfCardSets.Add(card.data[0].card_sets[i]);
                         }
                     }
                 }
             }
             return listOfCardSets;
-        }*/
+        }
+        public static bool codeExists(List<Card_Sets> listOfCardSets, string cardSetCode) {
+            string trimedExistingCardSetCode = "";
+            string trimedCurrentCardSetCode = "";
+            if (cardSetCode.Contains("-")) {
+                trimedCurrentCardSetCode = cardSetCode.Substring(0, cardSetCode.IndexOf("-"));
+            }
+            else {
+                trimedCurrentCardSetCode = cardSetCode;
+            }
+            foreach (Card_Sets cardSet in listOfCardSets){
+                if (cardSet.set_code.Contains("-")) {
+                    trimedExistingCardSetCode = cardSet.set_code.Substring(0, cardSet.set_code.IndexOf("-"));
+                }
+                else {
+                    trimedExistingCardSetCode = cardSet.set_code;
+                }   
+                if (trimedExistingCardSetCode.Equals(trimedCurrentCardSetCode)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static List<CardSet> getCardSetList() {
+            List<CardSet> customCardSetList = new List<CardSet>();
+            foreach (string line in File.ReadLines("C:\\Users\\bojan\\Desktop\\C#\\YugiohApp\\allCardSets.txt")) {
+                CardSet customCardSet = new CardSet();
+                string[] splitLine = line.Split(",");
+                customCardSet.code = splitLine[0];
+                customCardSet.cardCount = Convert.ToInt32(splitLine[1]);
+                customCardSet.releaseDateTCG = DateTime.ParseExact(splitLine[2], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                if(!regularCodeExists(customCardSetList, customCardSet.code)) {
+                    customCardSetList.Add(customCardSet);
+                }
+            }
+            return customCardSetList;
+        }
+        public static string customCardSetListToString(List<CardSet> customCardSetList) {
+            string customCardSetListString = "";
+            foreach(CardSet customCardSet in customCardSetList) {
+                customCardSetListString += customCardSet.code + " | " + customCardSet.cardCount + " | " + customCardSet.releaseDateTCG + "\n";
+            }
+            return customCardSetListString;
+        }
+        public static bool regularCodeExists(List<CardSet> customCardSetList, string cardSetCode) {
+            foreach (CardSet customCardSet in customCardSetList) {
+                if (customCardSet.code.Equals(cardSetCode)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool setExists(List<CardSet> customCardSetList, string cardSetCode) {
+            for (int i = 0; i < customCardSetList.Count; i++) {
+                if (customCardSetList[i].code.Equals(cardSetCode)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static string getListString(List<Card> cardList) {
+            string listString = "";
+            for(int i = 0; i < cardList.Count; i++) {
+                listString += cardList[i].name + "\n";
+            }
+            return listString;
+        }
     }
 }
