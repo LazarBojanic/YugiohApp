@@ -34,6 +34,10 @@
             this.priceAmazon = priceAmazon;
             this.priceCoolStuffInc = priceCoolStuffInc;
         }
+        public Card(int id, string name) {
+            this.id = id;
+            this.name = name;
+        }
         public Card() {
 
         }

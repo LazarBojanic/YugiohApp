@@ -1,18 +1,19 @@
 ﻿using System.Media;
+using YugiohApp.model;
 using YugiohApp.util;
+using static YugiohApp.util.SqlUtil;
 
 namespace YugiohApp.view {
     public partial class QuizForm : Form {
         private static string usersGuess = "";
         private Random random;
-        private JsonCard cardToGuess;
+        private Card cardToGuess;
         private string guessA;
         private string guessB;
         private string guessC;
         private string guessD;
         private List<string> guessesList;
-        private string allCardsJson;
-        private List<JsonCard> allCardsList;
+        private List<Card> simpleCardListSQL;
         private static int i = 7;
         private Image cardImage;
         public QuizForm() {
@@ -20,8 +21,7 @@ namespace YugiohApp.view {
             panelGuesses.Enabled = false;
             buttonRevealMore.Enabled = false;
             buttonConfirm.Enabled = false;
-            allCardsJson = File.ReadAllText($"{Properties.Settings.Default.cardsPath}allCards.json");
-            allCardsList = Util.getAllCardsList(allCardsJson);
+            simpleCardListSQL = getSimpleCardListSQL();
             random = new Random();
         }
         private void buttonPlay_Click(object sender, EventArgs e) {
@@ -43,33 +43,28 @@ namespace YugiohApp.view {
             }
             return shuffledList;
         }
-
         private void radioButtonGuessA_CheckedChanged(object sender, EventArgs e) {
             if(radioButtonGuessA.Checked) {
                 usersGuess = radioButtonGuessA.Text;
             }
         }
-
         private void radioButtonGuessB_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonGuessB.Checked) {
                 usersGuess = radioButtonGuessB.Text;
             }
         }
-
         private void radioButtonGuessC_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonGuessC.Checked) {
                 usersGuess = radioButtonGuessC.Text;
             }
         }
-
         private void radioButtonGuessD_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonGuessD.Checked) {
                 usersGuess = radioButtonGuessD.Text;
             }
         }
-
         private async void buttonConfirm_Click(object sender, EventArgs e) {
-            if (usersGuess.Equals(cardToGuess.data[0].name)) {
+            if (usersGuess.Equals(cardToGuess.name)) {
                 panelQuiz.Enabled = false;
                 labelResult.Text = "Result: Correct!";
                 SoundPlayer soundPlayer = new SoundPlayer($"{Properties.Settings.Default.soundsPath}winSound.wav");
@@ -87,7 +82,6 @@ namespace YugiohApp.view {
                 playRound();
             }
         }
-
         private void buttonRevealMore_Click(object sender, EventArgs e) {
             i--;
             if(i > 0) {
@@ -98,14 +92,15 @@ namespace YugiohApp.view {
             panelQuiz.Enabled = true;
             i = 7;
             guessesList = new List<string>();
-            cardToGuess = allCardsList[random.Next(allCardsList.Count)];
-            cardImage = Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{cardToGuess.data[0].id}_image.jpg");
+            cardToGuess = simpleCardListSQL[random.Next(simpleCardListSQL.Count)];
+            cardToGuess.loadImage();
+            cardImage = cardToGuess.image;
             pictureBoxCard.Image = Util.pixelate((Bitmap)cardImage, i);
 
-            guessA = cardToGuess.data[0].name;
-            guessB = allCardsList[random.Next(allCardsList.Count)].data[0].name;
-            guessC = allCardsList[random.Next(allCardsList.Count)].data[0].name;
-            guessD = allCardsList[random.Next(allCardsList.Count)].data[0].name;
+            guessA = cardToGuess.name;
+            guessB = simpleCardListSQL[random.Next(simpleCardListSQL.Count)].name;
+            guessC = simpleCardListSQL[random.Next(simpleCardListSQL.Count)].name;
+            guessD = simpleCardListSQL[random.Next(simpleCardListSQL.Count)].name;
 
             guessesList.Add(guessA);
             guessesList.Add(guessB);

@@ -7,9 +7,6 @@ public class JsonCard {
     public JsonCard() {
 
     }
-    public JsonCard(int cardId) {
-        this.data = getCardForId(cardId).data;
-    }
 }
 public class Datum {
     public int id { get; set; }

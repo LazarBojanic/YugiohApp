@@ -200,6 +200,7 @@
             this.ClientSize = new System.Drawing.Size(1023, 621);
             this.Controls.Add(this.panelQuiz);
             this.Name = "QuizForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QuizForm";
             this.panelQuiz.ResumeLayout(false);
             this.panelQuiz.PerformLayout();

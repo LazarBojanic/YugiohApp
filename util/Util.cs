@@ -167,8 +167,8 @@ namespace YugiohApp.util {
             }
             return foundCard;
         }*/
-        public static JsonCard getCardForId(int cardId) {
-            foreach(JsonCard card in DeckBuilderForm.allCardsListFromJson) {
+        public static JsonCard getCardForId(int cardId, List<JsonCard> allCardsListFromJson) {
+            foreach(JsonCard card in allCardsListFromJson) {
                 if (card.data[0].id == cardId) {
                     return card;
                 }

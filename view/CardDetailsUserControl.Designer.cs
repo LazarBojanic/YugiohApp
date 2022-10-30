@@ -37,7 +37,7 @@
             // 
             // pictureBoxCard
             // 
-            this.pictureBoxCard.Location = new System.Drawing.Point(30, 6);
+            this.pictureBoxCard.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxCard.Name = "pictureBoxCard";
             this.pictureBoxCard.Size = new System.Drawing.Size(215, 316);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -53,7 +53,7 @@
             this.panelDetails.Controls.Add(this.labelAtk);
             this.panelDetails.Location = new System.Drawing.Point(6, 328);
             this.panelDetails.Name = "panelDetails";
-            this.panelDetails.Size = new System.Drawing.Size(263, 235);
+            this.panelDetails.Size = new System.Drawing.Size(215, 235);
             this.panelDetails.TabIndex = 1;
             // 
             // labelName
@@ -61,7 +61,7 @@
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelName.Location = new System.Drawing.Point(6, 6);
-            this.labelName.MaximumSize = new System.Drawing.Size(372, 0);
+            this.labelName.MaximumSize = new System.Drawing.Size(175, 0);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(40, 16);
             this.labelName.TabIndex = 1;
@@ -78,7 +78,7 @@
             this.panelDescription.Controls.Add(this.labelDescription);
             this.panelDescription.Location = new System.Drawing.Point(3, 25);
             this.panelDescription.Name = "panelDescription";
-            this.panelDescription.Size = new System.Drawing.Size(255, 205);
+            this.panelDescription.Size = new System.Drawing.Size(207, 205);
             this.panelDescription.TabIndex = 3;
             // 
             // labelDescription
@@ -86,7 +86,7 @@
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDescription.Location = new System.Drawing.Point(6, 6);
-            this.labelDescription.MaximumSize = new System.Drawing.Size(227, 0);
+            this.labelDescription.MaximumSize = new System.Drawing.Size(165, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(66, 16);
             this.labelDescription.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.labelDef.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelDef.AutoSize = true;
             this.labelDef.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDef.Location = new System.Drawing.Point(334, 531);
+            this.labelDef.Location = new System.Drawing.Point(310, 531);
             this.labelDef.Name = "labelDef";
             this.labelDef.Size = new System.Drawing.Size(34, 17);
             this.labelDef.TabIndex = 2;
@@ -108,7 +108,7 @@
             this.labelAtk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelAtk.AutoSize = true;
             this.labelAtk.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelAtk.Location = new System.Drawing.Point(229, 531);
+            this.labelAtk.Location = new System.Drawing.Point(205, 531);
             this.labelAtk.Name = "labelAtk";
             this.labelAtk.Size = new System.Drawing.Size(34, 17);
             this.labelAtk.TabIndex = 1;
@@ -121,7 +121,7 @@
             this.Controls.Add(this.panelDetails);
             this.Controls.Add(this.pictureBoxCard);
             this.Name = "CardDetailsUserControl";
-            this.Size = new System.Drawing.Size(275, 569);
+            this.Size = new System.Drawing.Size(227, 569);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.panelDetails.ResumeLayout(false);
             this.panelDetails.PerformLayout();

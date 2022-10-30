@@ -65,8 +65,7 @@ namespace YugiohApp.util {
             }
             connection.Close();
         }*/
-        public static List<Card> getCardListSearchResult(string search, FlowLayoutPanel flowLayoutPanelCards) {
-            flowLayoutPanelCards.Controls.Clear();
+        public static List<Card> getCardListSearchResult(string search) {
             List<Card> cardListSearchResult = new List<Card>();
             OleDbConnection connection = getConnection();
             OleDbConnection cardSetConnection = getConnection();
@@ -99,11 +98,9 @@ namespace YugiohApp.util {
                     Convert.ToDecimal(dataRow["cardPriceCoolStuffInc"]));
                 card.loadImage();
                 cardListSearchResult.Add(card);
-                flowLayoutPanelCards.Controls.Add(new CardUserControl(card));
             }
             cardSetConnection.Close();
             return cardListSearchResult;
-
         }
         /*public static int fillCardSetForCardTable(List<Card> allCardsList) {
             int cardSetsForCardsAdded = 0;
@@ -323,6 +320,66 @@ namespace YugiohApp.util {
                 cardSetList.Add(cardSet);
             }
             return cardSetList;
+        }
+        public static List<Card> getSimpleCardListSQL() {
+            List<Card> simpleCardList = new List<Card>();
+            OleDbConnection connection = getConnection();
+            OleDbConnection cardSetConnection = getConnection();
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            string query = "SELECT [cardId], [cardName] FROM [card]";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            dataTable.Load(command.ExecuteReader());
+            connection.Close();
+            cardSetConnection.Open();
+            foreach (DataRow dataRow in dataTable.Rows) {
+                Card card = new Card(
+                    Convert.ToInt32(dataRow["cardId"]),
+                    Convert.ToString(dataRow["cardName"]));
+                simpleCardList.Add(card);
+            }
+            cardSetConnection.Close();
+            return simpleCardList;
+        }
+        public static void populateCardTypeComboBox(ComboBox comboBoxCardType) {
+            comboBoxCardType.Items.Clear();
+            comboBoxCardType.Items.Add("");
+            OleDbConnection connection = getConnection();
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            string query = "SELECT DISTINCT [cardType] FROM [card] ORDER BY [cardType]";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            dataTable.Load(command.ExecuteReader());
+            connection.Close();
+            foreach (DataRow dataRow in dataTable.Rows) {
+                comboBoxCardType.Items.Add(dataRow["cardType"]);
+            }
+        }
+        public static void populateCardRaceComboBox(ComboBox comboBoxCardRace) {
+            comboBoxCardRace.Items.Clear();
+            OleDbConnection connection = getConnection();
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            string query = "SELECT DISTINCT [cardRace] FROM [card] ORDER BY [cardRace]";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            dataTable.Load(command.ExecuteReader());
+            connection.Close();
+            foreach (DataRow dataRow in dataTable.Rows) {
+                comboBoxCardRace.Items.Add(dataRow["cardRace"]);
+            }
+        }
+        public static void populateCardAttributeComboBox(ComboBox comboBoxCardAttribute) {
+            comboBoxCardAttribute.Items.Clear();
+            OleDbConnection connection = getConnection();
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            string query = "SELECT DISTINCT [cardAttribute] FROM [card] ORDER BY [cardAttribute]";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            dataTable.Load(command.ExecuteReader());
+            connection.Close();
+            foreach (DataRow dataRow in dataTable.Rows) {
+                comboBoxCardAttribute.Items.Add(dataRow["cardAttribute"]);
+            }
         }
     }
 }
