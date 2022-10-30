@@ -6,11 +6,15 @@ using System.Diagnostics;
 namespace YugiohApp.view {
     public partial class DeckBuilderForm : Form {
         public static List<Card> cardListSearchResult = new List<Card>();
+        public List<List<Card>> chunkedList;
         public int numberOfSearchChunks;
         public Card selectedCard { get; set; }
         public static CardSearchMode atkSearchMode = CardSearchMode.ALL;
         public static CardSearchMode defSearchMode = CardSearchMode.ALL;
         public static CardSearchMode levelSearchMode = CardSearchMode.ALL;
+        public int cardsInSearchResult;
+        public int currentPage;
+        public int totalPages;
         public DeckBuilderForm() {
             InitializeComponent();
         }
@@ -21,19 +25,22 @@ namespace YugiohApp.view {
             return this.flowLayoutPanelCards;
         }
         private void buttonSearch_Click(object sender, EventArgs e) {
-            if(textBoxSearch.Text != "") {
-                flowLayoutPanelCards.Controls.Clear();
+            if (textBoxSearch.Text != "") {
                 cardListSearchResult = getCardListSearchResult(textBoxSearch.Text);
-
-                IEnumerable<Card[]> chuncked = (IEnumerable<Card[]>)cardListSearchResult.Chunk(30);
+                cardsInSearchResult = cardListSearchResult.Count;
+                /*IEnumerable<Card[]> chuncked = cardListSearchResult.Chunk(25);
                 numberOfSearchChunks = chuncked.Count();
                 foreach (Card[] chunk in chuncked) {
                     foreach (Card card in chunk) {
                         flowLayoutPanelCards.Controls.Add(new CardUserControl(card));
                     }
                     break;
-                }
-            }  
+                }*/
+                chunkedList = chunkList(cardListSearchResult, 25);
+                currentPage = 1;
+                totalPages = chunkedList.Count;
+                updateSearchResultPanel();
+            }
         }
         private void YugiohForm_Load(object sender, EventArgs e) {
             populateCardTypeComboBox(comboBoxType);
@@ -61,7 +68,7 @@ namespace YugiohApp.view {
             }
         }
         private void radioButtonAtkLesserOrEqual_CheckedChanged(object sender, EventArgs e) {
-            if(radioButtonAtkLesserOrEqual.Checked) {
+            if (radioButtonAtkLesserOrEqual.Checked) {
                 atkSearchMode = CardSearchMode.LESSER_OR_EQUAL;
             }
         }
@@ -113,6 +120,31 @@ namespace YugiohApp.view {
         private void radioButtonEqual_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonLevelEqual.Checked) {
                 levelSearchMode = CardSearchMode.EQUAL;
+            }
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e) {
+            if (currentPage - 1 > 0) {
+                currentPage--;
+                updateSearchResultPanel();
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e) {
+            if (currentPage + 1 <= totalPages) {
+                currentPage++;
+                updateSearchResultPanel();
+            }
+        }
+        public void updateSearchResultPanel() {
+            flowLayoutPanelCards.Controls.Clear();
+            if (cardListSearchResult.Count != 0) {
+                foreach (Card card in chunkedList[currentPage - 1]) {
+                    flowLayoutPanelCards.Controls.Add(new CardUserControl(card));
+                }
+                labelCardsInSearchResult.Text = cardsInSearchResult.ToString();
+                labelCurrentPage.Text = currentPage.ToString();
+                labelTotalPages.Text = totalPages.ToString();
             }
         }
     }

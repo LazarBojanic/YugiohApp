@@ -24,6 +24,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.panelYugioh = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelCardsInSearchResult = new System.Windows.Forms.Label();
+            this.labelTotalPages = new System.Windows.Forms.Label();
+            this.labelCurrentPage = new System.Windows.Forms.Label();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrevious = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelType = new System.Windows.Forms.Label();
             this.labelAttribute = new System.Windows.Forms.Label();
@@ -59,14 +65,13 @@
             this.flowLayoutPanelCards = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonPrevious = new System.Windows.Forms.Button();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.labelPage = new System.Windows.Forms.Label();
+            this.panelPage = new System.Windows.Forms.Panel();
             this.panelYugioh.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAtk.SuspendLayout();
             this.panelLevel.SuspendLayout();
             this.panelDef.SuspendLayout();
+            this.panelPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelYugioh
@@ -74,9 +79,7 @@
             this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelYugioh.Controls.Add(this.labelPage);
-            this.panelYugioh.Controls.Add(this.buttonNext);
-            this.panelYugioh.Controls.Add(this.buttonPrevious);
+            this.panelYugioh.Controls.Add(this.panelPage);
             this.panelYugioh.Controls.Add(this.panel1);
             this.panelYugioh.Controls.Add(this.buttonRemoveCard);
             this.panelYugioh.Controls.Add(this.buttonAddCard);
@@ -91,11 +94,75 @@
             this.panelYugioh.Size = new System.Drawing.Size(1240, 657);
             this.panelYugioh.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(57, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 20);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "/";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelCardsInSearchResult
+            // 
+            this.labelCardsInSearchResult.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCardsInSearchResult.Location = new System.Drawing.Point(38, 35);
+            this.labelCardsInSearchResult.Name = "labelCardsInSearchResult";
+            this.labelCardsInSearchResult.Size = new System.Drawing.Size(55, 21);
+            this.labelCardsInSearchResult.TabIndex = 39;
+            this.labelCardsInSearchResult.Text = "1";
+            this.labelCardsInSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelTotalPages
+            // 
+            this.labelTotalPages.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTotalPages.Location = new System.Drawing.Point(79, 6);
+            this.labelTotalPages.Name = "labelTotalPages";
+            this.labelTotalPages.Size = new System.Drawing.Size(52, 20);
+            this.labelTotalPages.TabIndex = 38;
+            this.labelTotalPages.Text = "1";
+            this.labelTotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelCurrentPage
+            // 
+            this.labelCurrentPage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCurrentPage.Location = new System.Drawing.Point(0, 6);
+            this.labelCurrentPage.Name = "labelCurrentPage";
+            this.labelCurrentPage.Size = new System.Drawing.Size(51, 20);
+            this.labelCurrentPage.TabIndex = 0;
+            this.labelCurrentPage.Text = "1";
+            this.labelCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNext.Location = new System.Drawing.Point(99, 29);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(32, 32);
+            this.buttonNext.TabIndex = 37;
+            this.buttonNext.Text = "→";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // buttonPrevious
+            // 
+            this.buttonPrevious.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPrevious.Location = new System.Drawing.Point(0, 29);
+            this.buttonPrevious.Name = "buttonPrevious";
+            this.buttonPrevious.Size = new System.Drawing.Size(32, 32);
+            this.buttonPrevious.TabIndex = 36;
+            this.buttonPrevious.Text = "←";
+            this.buttonPrevious.UseVisualStyleBackColor = true;
+            this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSize = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelType);
             this.panel1.Controls.Add(this.labelAttribute);
@@ -524,7 +591,10 @@
             // 
             // buttonRemoveCard
             // 
-            this.buttonRemoveCard.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonRemoveCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRemoveCard.AutoSize = true;
             this.buttonRemoveCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRemoveCard.Location = new System.Drawing.Point(980, 36);
             this.buttonRemoveCard.Name = "buttonRemoveCard";
@@ -536,7 +606,10 @@
             // 
             // buttonAddCard
             // 
-            this.buttonAddCard.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonAddCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddCard.AutoSize = true;
             this.buttonAddCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddCard.Location = new System.Drawing.Point(1057, 36);
             this.buttonAddCard.Name = "buttonAddCard";
@@ -553,6 +626,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelDeck.AutoScroll = true;
+            this.flowLayoutPanelDeck.AutoSize = true;
             this.flowLayoutPanelDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDeck.Location = new System.Drawing.Point(236, 82);
             this.flowLayoutPanelDeck.Name = "flowLayoutPanelDeck";
@@ -561,7 +635,8 @@
             // 
             // panelCard
             // 
-            this.panelCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelCard.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panelCard.AutoSize = true;
             this.panelCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCard.Location = new System.Drawing.Point(3, 82);
             this.panelCard.Name = "panelCard";
@@ -572,11 +647,12 @@
             // 
             this.flowLayoutPanelCards.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.flowLayoutPanelCards.AutoScroll = true;
+            this.flowLayoutPanelCards.AutoSize = true;
             this.flowLayoutPanelCards.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelCards.Location = new System.Drawing.Point(1106, 82);
             this.flowLayoutPanelCards.Name = "flowLayoutPanelCards";
-            this.flowLayoutPanelCards.Size = new System.Drawing.Size(131, 531);
+            this.flowLayoutPanelCards.Size = new System.Drawing.Size(131, 487);
             this.flowLayoutPanelCards.TabIndex = 9;
             this.flowLayoutPanelCards.WrapContents = false;
             // 
@@ -592,6 +668,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonSearch.AutoSize = true;
             this.buttonSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSearch.Location = new System.Drawing.Point(1106, 36);
             this.buttonSearch.Name = "buttonSearch";
@@ -601,44 +678,20 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // buttonPrevious
+            // panelPage
             // 
-            this.buttonPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrevious.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPrevious.Location = new System.Drawing.Point(1106, 619);
-            this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(32, 32);
-            this.buttonPrevious.TabIndex = 36;
-            this.buttonPrevious.Text = "←";
-            this.buttonPrevious.UseVisualStyleBackColor = true;
-            // 
-            // buttonNext
-            // 
-            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNext.Location = new System.Drawing.Point(1205, 619);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(32, 32);
-            this.buttonNext.TabIndex = 37;
-            this.buttonNext.Text = "→";
-            this.buttonNext.UseVisualStyleBackColor = true;
-            // 
-            // labelPage
-            // 
-            this.labelPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPage.AutoSize = true;
-            this.labelPage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPage.Location = new System.Drawing.Point(1151, 624);
-            this.labelPage.Name = "labelPage";
-            this.labelPage.Size = new System.Drawing.Size(40, 22);
-            this.labelPage.TabIndex = 38;
-            this.labelPage.Text = "1/1";
+            this.panelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panelPage.AutoSize = true;
+            this.panelPage.Controls.Add(this.labelCurrentPage);
+            this.panelPage.Controls.Add(this.label1);
+            this.panelPage.Controls.Add(this.buttonPrevious);
+            this.panelPage.Controls.Add(this.labelCardsInSearchResult);
+            this.panelPage.Controls.Add(this.buttonNext);
+            this.panelPage.Controls.Add(this.labelTotalPages);
+            this.panelPage.Location = new System.Drawing.Point(1103, 575);
+            this.panelPage.Name = "panelPage";
+            this.panelPage.Size = new System.Drawing.Size(134, 73);
+            this.panelPage.TabIndex = 41;
             // 
             // DeckBuilderForm
             // 
@@ -660,6 +713,8 @@
             this.panelLevel.PerformLayout();
             this.panelDef.ResumeLayout(false);
             this.panelDef.PerformLayout();
+            this.panelPage.ResumeLayout(false);
+            this.panelPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -704,6 +759,10 @@
         private RadioButton radioButtonLevelAll;
         private Button buttonPrevious;
         private Button buttonNext;
-        private Label labelPage;
+        private Label labelTotalPages;
+        private Label labelCurrentPage;
+        private Label label1;
+        private Label labelCardsInSearchResult;
+        private Panel panelPage;
     }
 }

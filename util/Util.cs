@@ -319,5 +319,44 @@ namespace YugiohApp.util {
             }
             return listString;
         }
+        public static List<List<Card>> chunkList(List<Card> cardListSearchResult, int chunkSize) {
+            List<List<Card>> chunks = new List<List<Card>>();
+            if(cardListSearchResult.Count <= chunkSize) {
+                chunks.Add(cardListSearchResult);
+                return chunks;
+            }
+            else {
+                int numberOfChunks = cardListSearchResult.Count / chunkSize;
+                int chunkRemainder = cardListSearchResult.Count % chunkSize;
+                if(chunkRemainder != 0) {
+                    int j = 0;
+                    for (int i = 0; i < numberOfChunks; i++) {
+                        List<Card> regularChunk = new List<Card>();
+                        while(j < chunkSize * (i + 1)) {
+                            regularChunk.Add(cardListSearchResult[j]);
+                            j++;
+                        }
+                        chunks.Add(regularChunk);
+                    }
+                    List<Card> partialChunk = new List<Card>();
+                    for (int k = 0; k < chunkRemainder; k++) {
+                        partialChunk.Add(cardListSearchResult[k + j]);
+                    }
+                    chunks.Add(partialChunk);
+                }
+                else {
+                    int j = 0;
+                    for (int i = 0; i < numberOfChunks; i++) {
+                        List<Card> regularChunk = new List<Card>();
+                        while (j < chunkSize * (i + 1)) {
+                            regularChunk.Add(cardListSearchResult[j]);
+                            j++;
+                        }
+                        chunks.Add(regularChunk);
+                    }
+                }
+            }
+            return chunks;
+        }
     }
 }
