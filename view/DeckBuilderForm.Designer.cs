@@ -24,12 +24,13 @@
         /// </summary>
         private void InitializeComponent() {
             this.panelYugioh = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelCardsInSearchResult = new System.Windows.Forms.Label();
-            this.labelTotalPages = new System.Windows.Forms.Label();
+            this.panelPage = new System.Windows.Forms.Panel();
             this.labelCurrentPage = new System.Windows.Forms.Label();
-            this.buttonNext = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonPrevious = new System.Windows.Forms.Button();
+            this.labelCardsInSearchResult = new System.Windows.Forms.Label();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelTotalPages = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelType = new System.Windows.Forms.Label();
             this.labelAttribute = new System.Windows.Forms.Label();
@@ -65,13 +66,12 @@
             this.flowLayoutPanelCards = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.panelPage = new System.Windows.Forms.Panel();
             this.panelYugioh.SuspendLayout();
+            this.panelPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAtk.SuspendLayout();
             this.panelLevel.SuspendLayout();
             this.panelDef.SuspendLayout();
-            this.panelPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelYugioh
@@ -94,36 +94,19 @@
             this.panelYugioh.Size = new System.Drawing.Size(1240, 657);
             this.panelYugioh.TabIndex = 0;
             // 
-            // label1
+            // panelPage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(57, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 20);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "/";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelCardsInSearchResult
-            // 
-            this.labelCardsInSearchResult.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCardsInSearchResult.Location = new System.Drawing.Point(38, 35);
-            this.labelCardsInSearchResult.Name = "labelCardsInSearchResult";
-            this.labelCardsInSearchResult.Size = new System.Drawing.Size(55, 21);
-            this.labelCardsInSearchResult.TabIndex = 39;
-            this.labelCardsInSearchResult.Text = "1";
-            this.labelCardsInSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelTotalPages
-            // 
-            this.labelTotalPages.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTotalPages.Location = new System.Drawing.Point(79, 6);
-            this.labelTotalPages.Name = "labelTotalPages";
-            this.labelTotalPages.Size = new System.Drawing.Size(52, 20);
-            this.labelTotalPages.TabIndex = 38;
-            this.labelTotalPages.Text = "1";
-            this.labelTotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panelPage.Controls.Add(this.labelCurrentPage);
+            this.panelPage.Controls.Add(this.label1);
+            this.panelPage.Controls.Add(this.buttonPrevious);
+            this.panelPage.Controls.Add(this.labelCardsInSearchResult);
+            this.panelPage.Controls.Add(this.buttonNext);
+            this.panelPage.Controls.Add(this.labelTotalPages);
+            this.panelPage.Location = new System.Drawing.Point(1103, 584);
+            this.panelPage.Name = "panelPage";
+            this.panelPage.Size = new System.Drawing.Size(134, 64);
+            this.panelPage.TabIndex = 41;
             // 
             // labelCurrentPage
             // 
@@ -135,16 +118,16 @@
             this.labelCurrentPage.Text = "1";
             this.labelCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // buttonNext
+            // label1
             // 
-            this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNext.Location = new System.Drawing.Point(99, 29);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(32, 32);
-            this.buttonNext.TabIndex = 37;
-            this.buttonNext.Text = "→";
-            this.buttonNext.UseVisualStyleBackColor = true;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(57, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 20);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "/";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonPrevious
             // 
@@ -157,12 +140,42 @@
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
+            // labelCardsInSearchResult
+            // 
+            this.labelCardsInSearchResult.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCardsInSearchResult.Location = new System.Drawing.Point(38, 35);
+            this.labelCardsInSearchResult.Name = "labelCardsInSearchResult";
+            this.labelCardsInSearchResult.Size = new System.Drawing.Size(55, 21);
+            this.labelCardsInSearchResult.TabIndex = 39;
+            this.labelCardsInSearchResult.Text = "1";
+            this.labelCardsInSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNext.Location = new System.Drawing.Point(99, 29);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(32, 32);
+            this.buttonNext.TabIndex = 37;
+            this.buttonNext.Text = "→";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // labelTotalPages
+            // 
+            this.labelTotalPages.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTotalPages.Location = new System.Drawing.Point(79, 6);
+            this.labelTotalPages.Name = "labelTotalPages";
+            this.labelTotalPages.Size = new System.Drawing.Size(52, 20);
+            this.labelTotalPages.TabIndex = 38;
+            this.labelTotalPages.Text = "1";
+            this.labelTotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelType);
             this.panel1.Controls.Add(this.labelAttribute);
@@ -220,6 +233,7 @@
             this.textBoxAtk.Name = "textBoxAtk";
             this.textBoxAtk.Size = new System.Drawing.Size(163, 23);
             this.textBoxAtk.TabIndex = 20;
+            this.textBoxAtk.Text = "0";
             // 
             // labelRace
             // 
@@ -280,6 +294,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonAtkAll.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonAtkAll.AutoSize = true;
+            this.radioButtonAtkAll.Checked = true;
             this.radioButtonAtkAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonAtkAll.Location = new System.Drawing.Point(3, 3);
             this.radioButtonAtkAll.Name = "radioButtonAtkAll";
@@ -303,7 +318,6 @@
             this.radioButtonAtkEqual.Name = "radioButtonAtkEqual";
             this.radioButtonAtkEqual.Size = new System.Drawing.Size(32, 32);
             this.radioButtonAtkEqual.TabIndex = 2;
-            this.radioButtonAtkEqual.TabStop = true;
             this.radioButtonAtkEqual.Text = "=";
             this.radioButtonAtkEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAtkEqual.UseVisualStyleBackColor = true;
@@ -321,7 +335,6 @@
             this.radioButtonAtkGreaterOrEqual.Name = "radioButtonAtkGreaterOrEqual";
             this.radioButtonAtkGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonAtkGreaterOrEqual.TabIndex = 1;
-            this.radioButtonAtkGreaterOrEqual.TabStop = true;
             this.radioButtonAtkGreaterOrEqual.Text = "≥";
             this.radioButtonAtkGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAtkGreaterOrEqual.UseVisualStyleBackColor = true;
@@ -339,7 +352,6 @@
             this.radioButtonAtkLesserOrEqual.Name = "radioButtonAtkLesserOrEqual";
             this.radioButtonAtkLesserOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonAtkLesserOrEqual.TabIndex = 0;
-            this.radioButtonAtkLesserOrEqual.TabStop = true;
             this.radioButtonAtkLesserOrEqual.Text = "≤";
             this.radioButtonAtkLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAtkLesserOrEqual.UseVisualStyleBackColor = true;
@@ -416,6 +428,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLevelAll.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonLevelAll.AutoSize = true;
+            this.radioButtonLevelAll.Checked = true;
             this.radioButtonLevelAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonLevelAll.Location = new System.Drawing.Point(3, 3);
             this.radioButtonLevelAll.Name = "radioButtonLevelAll";
@@ -439,7 +452,6 @@
             this.radioButtonLevelEqual.Name = "radioButtonLevelEqual";
             this.radioButtonLevelEqual.Size = new System.Drawing.Size(32, 32);
             this.radioButtonLevelEqual.TabIndex = 2;
-            this.radioButtonLevelEqual.TabStop = true;
             this.radioButtonLevelEqual.Text = "=";
             this.radioButtonLevelEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelEqual.UseVisualStyleBackColor = true;
@@ -457,7 +469,6 @@
             this.radioButtonLevelGreaterOrEqual.Name = "radioButtonLevelGreaterOrEqual";
             this.radioButtonLevelGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonLevelGreaterOrEqual.TabIndex = 1;
-            this.radioButtonLevelGreaterOrEqual.TabStop = true;
             this.radioButtonLevelGreaterOrEqual.Text = "≥";
             this.radioButtonLevelGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelGreaterOrEqual.UseVisualStyleBackColor = true;
@@ -475,7 +486,6 @@
             this.radioButtonLevelLesserOrEqual.Name = "radioButtonLevelLesserOrEqual";
             this.radioButtonLevelLesserOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonLevelLesserOrEqual.TabIndex = 0;
-            this.radioButtonLevelLesserOrEqual.TabStop = true;
             this.radioButtonLevelLesserOrEqual.Text = "≤";
             this.radioButtonLevelLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelLesserOrEqual.UseVisualStyleBackColor = true;
@@ -491,6 +501,7 @@
             this.textBoxDef.Name = "textBoxDef";
             this.textBoxDef.Size = new System.Drawing.Size(163, 23);
             this.textBoxDef.TabIndex = 23;
+            this.textBoxDef.Text = "0";
             // 
             // textBoxLevel
             // 
@@ -502,6 +513,7 @@
             this.textBoxLevel.Name = "textBoxLevel";
             this.textBoxLevel.Size = new System.Drawing.Size(163, 23);
             this.textBoxLevel.TabIndex = 23;
+            this.textBoxLevel.Text = "0";
             // 
             // panelDef
             // 
@@ -524,6 +536,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDefAll.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonDefAll.AutoSize = true;
+            this.radioButtonDefAll.Checked = true;
             this.radioButtonDefAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonDefAll.Location = new System.Drawing.Point(3, 3);
             this.radioButtonDefAll.Name = "radioButtonDefAll";
@@ -547,7 +560,6 @@
             this.radioButtonDefEqual.Name = "radioButtonDefEqual";
             this.radioButtonDefEqual.Size = new System.Drawing.Size(32, 32);
             this.radioButtonDefEqual.TabIndex = 2;
-            this.radioButtonDefEqual.TabStop = true;
             this.radioButtonDefEqual.Text = "=";
             this.radioButtonDefEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefEqual.UseVisualStyleBackColor = true;
@@ -565,7 +577,6 @@
             this.radioButtonDefGreaterOrEqual.Name = "radioButtonDefGreaterOrEqual";
             this.radioButtonDefGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonDefGreaterOrEqual.TabIndex = 1;
-            this.radioButtonDefGreaterOrEqual.TabStop = true;
             this.radioButtonDefGreaterOrEqual.Text = "≥";
             this.radioButtonDefGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefGreaterOrEqual.UseVisualStyleBackColor = true;
@@ -583,7 +594,6 @@
             this.radioButtonDefLesserOrEqual.Name = "radioButtonDefLesserOrEqual";
             this.radioButtonDefLesserOrEqual.Size = new System.Drawing.Size(30, 32);
             this.radioButtonDefLesserOrEqual.TabIndex = 0;
-            this.radioButtonDefLesserOrEqual.TabStop = true;
             this.radioButtonDefLesserOrEqual.Text = "≤";
             this.radioButtonDefLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefLesserOrEqual.UseVisualStyleBackColor = true;
@@ -594,7 +604,6 @@
             this.buttonRemoveCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRemoveCard.AutoSize = true;
             this.buttonRemoveCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRemoveCard.Location = new System.Drawing.Point(980, 36);
             this.buttonRemoveCard.Name = "buttonRemoveCard";
@@ -609,7 +618,6 @@
             this.buttonAddCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddCard.AutoSize = true;
             this.buttonAddCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddCard.Location = new System.Drawing.Point(1057, 36);
             this.buttonAddCard.Name = "buttonAddCard";
@@ -626,7 +634,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelDeck.AutoScroll = true;
-            this.flowLayoutPanelDeck.AutoSize = true;
             this.flowLayoutPanelDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDeck.Location = new System.Drawing.Point(236, 82);
             this.flowLayoutPanelDeck.Name = "flowLayoutPanelDeck";
@@ -636,7 +643,6 @@
             // panelCard
             // 
             this.panelCard.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panelCard.AutoSize = true;
             this.panelCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCard.Location = new System.Drawing.Point(3, 82);
             this.panelCard.Name = "panelCard";
@@ -647,7 +653,6 @@
             // 
             this.flowLayoutPanelCards.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.flowLayoutPanelCards.AutoScroll = true;
-            this.flowLayoutPanelCards.AutoSize = true;
             this.flowLayoutPanelCards.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelCards.Location = new System.Drawing.Point(1106, 82);
@@ -668,7 +673,6 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonSearch.AutoSize = true;
             this.buttonSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSearch.Location = new System.Drawing.Point(1106, 36);
             this.buttonSearch.Name = "buttonSearch";
@@ -677,21 +681,6 @@
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // panelPage
-            // 
-            this.panelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panelPage.AutoSize = true;
-            this.panelPage.Controls.Add(this.labelCurrentPage);
-            this.panelPage.Controls.Add(this.label1);
-            this.panelPage.Controls.Add(this.buttonPrevious);
-            this.panelPage.Controls.Add(this.labelCardsInSearchResult);
-            this.panelPage.Controls.Add(this.buttonNext);
-            this.panelPage.Controls.Add(this.labelTotalPages);
-            this.panelPage.Location = new System.Drawing.Point(1103, 575);
-            this.panelPage.Name = "panelPage";
-            this.panelPage.Size = new System.Drawing.Size(134, 73);
-            this.panelPage.TabIndex = 41;
             // 
             // DeckBuilderForm
             // 
@@ -705,6 +694,8 @@
             this.Load += new System.EventHandler(this.YugiohForm_Load);
             this.panelYugioh.ResumeLayout(false);
             this.panelYugioh.PerformLayout();
+            this.panelPage.ResumeLayout(false);
+            this.panelPage.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelAtk.ResumeLayout(false);
@@ -713,8 +704,6 @@
             this.panelLevel.PerformLayout();
             this.panelDef.ResumeLayout(false);
             this.panelDef.PerformLayout();
-            this.panelPage.ResumeLayout(false);
-            this.panelPage.PerformLayout();
             this.ResumeLayout(false);
 
         }

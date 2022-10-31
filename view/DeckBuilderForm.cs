@@ -9,6 +9,13 @@ namespace YugiohApp.view {
         public List<List<Card>> chunkedList;
         public int numberOfSearchChunks;
         public Card selectedCard { get; set; }
+        public static string nameOrDescSearch = "";
+        public static string typeSearch = "";
+        public static string raceSearch = "";
+        public static string attributeSearch = "";
+        public static int atkSearch = 0;
+        public static int defSearch = 0;
+        public static int levelSearch = 0;
         public static CardSearchMode atkSearchMode = CardSearchMode.ALL;
         public static CardSearchMode defSearchMode = CardSearchMode.ALL;
         public static CardSearchMode levelSearchMode = CardSearchMode.ALL;
@@ -24,24 +31,23 @@ namespace YugiohApp.view {
         public FlowLayoutPanel getFlowLayoutPanelCards() {
             return this.flowLayoutPanelCards;
         }
-        private void buttonSearch_Click(object sender, EventArgs e) {
-            if (textBoxSearch.Text != "") {
-                cardListSearchResult = getCardListSearchResult(textBoxSearch.Text);
-                cardsInSearchResult = cardListSearchResult.Count;
-                /*IEnumerable<Card[]> chuncked = cardListSearchResult.Chunk(25);
-                numberOfSearchChunks = chuncked.Count();
-                foreach (Card[] chunk in chuncked) {
-                    foreach (Card card in chunk) {
-                        flowLayoutPanelCards.Controls.Add(new CardUserControl(card));
-                    }
-                    break;
-                }*/
-                chunkedList = chunkList(cardListSearchResult, 25);
-                currentPage = 1;
-                totalPages = chunkedList.Count;
-                updateSearchResultPanel();
-            }
+        private async void buttonSearch_Click(object sender, EventArgs e) {
+            nameOrDescSearch = textBoxSearch.Text;
+            typeSearch = comboBoxType.Text;
+            raceSearch = comboBoxRace.Text;
+            attributeSearch = comboBoxAttribute.Text;
+            atkSearch = Convert.ToInt32(textBoxAtk.Text);
+            defSearch = Convert.ToInt32(textBoxDef.Text);
+            levelSearch = Convert.ToInt32(textBoxLevel.Text);
+            cardListSearchResult = await Task.Run(() => getCardListSearchResult());
+            Task.WaitAll();
+            cardsInSearchResult = cardListSearchResult.Count;
+            chunkedList = chunkList(cardListSearchResult, 25);
+            currentPage = 1;
+            totalPages = chunkedList.Count;
+            updateSearchResultPanel();
         }
+        
         private void YugiohForm_Load(object sender, EventArgs e) {
             populateCardTypeComboBox(comboBoxType);
             populateCardRaceComboBox(comboBoxRace);
