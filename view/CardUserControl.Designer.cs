@@ -34,7 +34,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxCard.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(99, 169);
+            this.pictureBoxCard.Size = new System.Drawing.Size(50, 73);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard.TabIndex = 0;
             this.pictureBoxCard.TabStop = false;
@@ -47,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pictureBoxCard);
             this.Name = "CardUserControl";
-            this.Size = new System.Drawing.Size(99, 169);
+            this.Size = new System.Drawing.Size(50, 73);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.ResumeLayout(false);
 

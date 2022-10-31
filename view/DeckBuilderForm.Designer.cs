@@ -25,40 +25,40 @@
         private void InitializeComponent() {
             this.panelYugioh = new System.Windows.Forms.Panel();
             this.panelPage = new System.Windows.Forms.Panel();
-            this.labelCurrentPage = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonPrevious = new System.Windows.Forms.Button();
             this.labelCardsInSearchResult = new System.Windows.Forms.Label();
-            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrevious = new System.Windows.Forms.Button();
+            this.labelPageSeparator = new System.Windows.Forms.Label();
             this.labelTotalPages = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelCurrentPage = new System.Windows.Forms.Label();
+            this.panelSpecificSearch = new System.Windows.Forms.Panel();
+            this.panelLevel = new System.Windows.Forms.Panel();
+            this.radioButtonLevelEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonLevelGreaterOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonLevelLesserOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonLevelAll = new System.Windows.Forms.RadioButton();
+            this.panelDef = new System.Windows.Forms.Panel();
+            this.radioButtonDefEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonDefGreaterOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonDefLesserOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonDefAll = new System.Windows.Forms.RadioButton();
             this.labelType = new System.Windows.Forms.Label();
+            this.panelAtk = new System.Windows.Forms.Panel();
+            this.radioButtonAtkEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonAtkGreaterOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonAtkLesserOrEqual = new System.Windows.Forms.RadioButton();
+            this.radioButtonAtkAll = new System.Windows.Forms.RadioButton();
             this.labelAttribute = new System.Windows.Forms.Label();
             this.textBoxAtk = new System.Windows.Forms.TextBox();
             this.labelRace = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.labelLevel = new System.Windows.Forms.Label();
-            this.panelAtk = new System.Windows.Forms.Panel();
-            this.radioButtonAtkAll = new System.Windows.Forms.RadioButton();
-            this.radioButtonAtkEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonAtkGreaterOrEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonAtkLesserOrEqual = new System.Windows.Forms.RadioButton();
             this.labelDef = new System.Windows.Forms.Label();
             this.comboBoxRace = new System.Windows.Forms.ComboBox();
             this.labelAtk = new System.Windows.Forms.Label();
             this.comboBoxAttribute = new System.Windows.Forms.ComboBox();
-            this.panelLevel = new System.Windows.Forms.Panel();
-            this.radioButtonLevelAll = new System.Windows.Forms.RadioButton();
-            this.radioButtonLevelEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonLevelGreaterOrEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonLevelLesserOrEqual = new System.Windows.Forms.RadioButton();
             this.textBoxDef = new System.Windows.Forms.TextBox();
             this.textBoxLevel = new System.Windows.Forms.TextBox();
-            this.panelDef = new System.Windows.Forms.Panel();
-            this.radioButtonDefAll = new System.Windows.Forms.RadioButton();
-            this.radioButtonDefEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonDefGreaterOrEqual = new System.Windows.Forms.RadioButton();
-            this.radioButtonDefLesserOrEqual = new System.Windows.Forms.RadioButton();
             this.buttonRemoveCard = new System.Windows.Forms.Button();
             this.buttonAddCard = new System.Windows.Forms.Button();
             this.flowLayoutPanelDeck = new System.Windows.Forms.FlowLayoutPanel();
@@ -68,19 +68,17 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.panelYugioh.SuspendLayout();
             this.panelPage.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelAtk.SuspendLayout();
+            this.panelSpecificSearch.SuspendLayout();
             this.panelLevel.SuspendLayout();
             this.panelDef.SuspendLayout();
+            this.panelAtk.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelYugioh
             // 
-            this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelYugioh.Controls.Add(this.panelPage);
-            this.panelYugioh.Controls.Add(this.panel1);
+            this.panelYugioh.Controls.Add(this.panelSpecificSearch);
             this.panelYugioh.Controls.Add(this.buttonRemoveCard);
             this.panelYugioh.Controls.Add(this.buttonAddCard);
             this.panelYugioh.Controls.Add(this.flowLayoutPanelDeck);
@@ -96,43 +94,32 @@
             // 
             // panelPage
             // 
-            this.panelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panelPage.Controls.Add(this.labelCurrentPage);
-            this.panelPage.Controls.Add(this.label1);
-            this.panelPage.Controls.Add(this.buttonPrevious);
+            this.panelPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPage.Controls.Add(this.labelCardsInSearchResult);
-            this.panelPage.Controls.Add(this.buttonNext);
+            this.panelPage.Controls.Add(this.buttonPrevious);
+            this.panelPage.Controls.Add(this.labelPageSeparator);
             this.panelPage.Controls.Add(this.labelTotalPages);
-            this.panelPage.Location = new System.Drawing.Point(1103, 584);
+            this.panelPage.Controls.Add(this.buttonNext);
+            this.panelPage.Controls.Add(this.labelCurrentPage);
+            this.panelPage.Location = new System.Drawing.Point(1091, 584);
             this.panelPage.Name = "panelPage";
-            this.panelPage.Size = new System.Drawing.Size(134, 64);
+            this.panelPage.Size = new System.Drawing.Size(146, 64);
             this.panelPage.TabIndex = 41;
             // 
-            // labelCurrentPage
+            // labelCardsInSearchResult
             // 
-            this.labelCurrentPage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCurrentPage.Location = new System.Drawing.Point(0, 6);
-            this.labelCurrentPage.Name = "labelCurrentPage";
-            this.labelCurrentPage.Size = new System.Drawing.Size(51, 20);
-            this.labelCurrentPage.TabIndex = 0;
-            this.labelCurrentPage.Text = "1";
-            this.labelCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(57, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 20);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "/";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelCardsInSearchResult.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCardsInSearchResult.Location = new System.Drawing.Point(41, 35);
+            this.labelCardsInSearchResult.Name = "labelCardsInSearchResult";
+            this.labelCardsInSearchResult.Size = new System.Drawing.Size(64, 21);
+            this.labelCardsInSearchResult.TabIndex = 39;
+            this.labelCardsInSearchResult.Text = "1";
+            this.labelCardsInSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonPrevious
             // 
             this.buttonPrevious.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPrevious.Location = new System.Drawing.Point(0, 29);
+            this.buttonPrevious.Location = new System.Drawing.Point(3, 29);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(32, 32);
             this.buttonPrevious.TabIndex = 36;
@@ -140,20 +127,34 @@
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
-            // labelCardsInSearchResult
+            // labelPageSeparator
             // 
-            this.labelCardsInSearchResult.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCardsInSearchResult.Location = new System.Drawing.Point(38, 35);
-            this.labelCardsInSearchResult.Name = "labelCardsInSearchResult";
-            this.labelCardsInSearchResult.Size = new System.Drawing.Size(55, 21);
-            this.labelCardsInSearchResult.TabIndex = 39;
-            this.labelCardsInSearchResult.Text = "1";
-            this.labelCardsInSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPageSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPageSeparator.AutoSize = true;
+            this.labelPageSeparator.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPageSeparator.Location = new System.Drawing.Point(65, 6);
+            this.labelPageSeparator.Name = "labelPageSeparator";
+            this.labelPageSeparator.Size = new System.Drawing.Size(16, 20);
+            this.labelPageSeparator.TabIndex = 0;
+            this.labelPageSeparator.Text = "/";
+            this.labelPageSeparator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelTotalPages
+            // 
+            this.labelTotalPages.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTotalPages.Location = new System.Drawing.Point(87, 6);
+            this.labelTotalPages.Name = "labelTotalPages";
+            this.labelTotalPages.Size = new System.Drawing.Size(56, 20);
+            this.labelTotalPages.TabIndex = 38;
+            this.labelTotalPages.Text = "1";
+            this.labelTotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonNext
             // 
             this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNext.Location = new System.Drawing.Point(99, 29);
+            this.buttonNext.Location = new System.Drawing.Point(111, 29);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(32, 32);
             this.buttonNext.TabIndex = 37;
@@ -161,284 +162,53 @@
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
-            // labelTotalPages
+            // labelCurrentPage
             // 
-            this.labelTotalPages.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTotalPages.Location = new System.Drawing.Point(79, 6);
-            this.labelTotalPages.Name = "labelTotalPages";
-            this.labelTotalPages.Size = new System.Drawing.Size(52, 20);
-            this.labelTotalPages.TabIndex = 38;
-            this.labelTotalPages.Text = "1";
-            this.labelTotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelCurrentPage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCurrentPage.Location = new System.Drawing.Point(3, 6);
+            this.labelCurrentPage.Name = "labelCurrentPage";
+            this.labelCurrentPage.Size = new System.Drawing.Size(56, 20);
+            this.labelCurrentPage.TabIndex = 0;
+            this.labelCurrentPage.Text = "1";
+            this.labelCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel1
+            // panelSpecificSearch
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.labelType);
-            this.panel1.Controls.Add(this.labelAttribute);
-            this.panel1.Controls.Add(this.textBoxAtk);
-            this.panel1.Controls.Add(this.labelRace);
-            this.panel1.Controls.Add(this.comboBoxType);
-            this.panel1.Controls.Add(this.labelLevel);
-            this.panel1.Controls.Add(this.panelAtk);
-            this.panel1.Controls.Add(this.labelDef);
-            this.panel1.Controls.Add(this.comboBoxRace);
-            this.panel1.Controls.Add(this.labelAtk);
-            this.panel1.Controls.Add(this.comboBoxAttribute);
-            this.panel1.Controls.Add(this.panelLevel);
-            this.panel1.Controls.Add(this.textBoxDef);
-            this.panel1.Controls.Add(this.textBoxLevel);
-            this.panel1.Controls.Add(this.panelDef);
-            this.panel1.Location = new System.Drawing.Point(929, 82);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 569);
-            this.panel1.TabIndex = 35;
-            // 
-            // labelType
-            // 
-            this.labelType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelType.AutoSize = true;
-            this.labelType.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelType.Location = new System.Drawing.Point(57, 2);
-            this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(54, 22);
-            this.labelType.TabIndex = 28;
-            this.labelType.Text = "Type";
-            // 
-            // labelAttribute
-            // 
-            this.labelAttribute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAttribute.AutoSize = true;
-            this.labelAttribute.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelAttribute.Location = new System.Drawing.Point(38, 408);
-            this.labelAttribute.Name = "labelAttribute";
-            this.labelAttribute.Size = new System.Drawing.Size(92, 22);
-            this.labelAttribute.TabIndex = 34;
-            this.labelAttribute.Text = "Attribute";
-            // 
-            // textBoxAtk
-            // 
-            this.textBoxAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAtk.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAtk.Location = new System.Drawing.Point(3, 130);
-            this.textBoxAtk.Name = "textBoxAtk";
-            this.textBoxAtk.Size = new System.Drawing.Size(163, 23);
-            this.textBoxAtk.TabIndex = 20;
-            this.textBoxAtk.Text = "0";
-            // 
-            // labelRace
-            // 
-            this.labelRace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelRace.AutoSize = true;
-            this.labelRace.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelRace.Location = new System.Drawing.Point(55, 352);
-            this.labelRace.Name = "labelRace";
-            this.labelRace.Size = new System.Drawing.Size(59, 22);
-            this.labelRace.TabIndex = 33;
-            this.labelRace.Text = "Race";
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxType.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(3, 30);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(163, 25);
-            this.comboBoxType.TabIndex = 21;
-            // 
-            // labelLevel
-            // 
-            this.labelLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelLevel.AutoSize = true;
-            this.labelLevel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelLevel.Location = new System.Drawing.Point(55, 254);
-            this.labelLevel.Name = "labelLevel";
-            this.labelLevel.Size = new System.Drawing.Size(59, 22);
-            this.labelLevel.TabIndex = 32;
-            this.labelLevel.Text = "Level";
-            // 
-            // panelAtk
-            // 
-            this.panelAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelAtk.Controls.Add(this.radioButtonAtkAll);
-            this.panelAtk.Controls.Add(this.radioButtonAtkEqual);
-            this.panelAtk.Controls.Add(this.radioButtonAtkGreaterOrEqual);
-            this.panelAtk.Controls.Add(this.radioButtonAtkLesserOrEqual);
-            this.panelAtk.Location = new System.Drawing.Point(11, 86);
-            this.panelAtk.Name = "panelAtk";
-            this.panelAtk.Size = new System.Drawing.Size(145, 38);
-            this.panelAtk.TabIndex = 22;
-            // 
-            // radioButtonAtkAll
-            // 
-            this.radioButtonAtkAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonAtkAll.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonAtkAll.AutoSize = true;
-            this.radioButtonAtkAll.Checked = true;
-            this.radioButtonAtkAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonAtkAll.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonAtkAll.Name = "radioButtonAtkAll";
-            this.radioButtonAtkAll.Size = new System.Drawing.Size(29, 32);
-            this.radioButtonAtkAll.TabIndex = 4;
-            this.radioButtonAtkAll.TabStop = true;
-            this.radioButtonAtkAll.Text = "*";
-            this.radioButtonAtkAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonAtkAll.UseVisualStyleBackColor = true;
-            this.radioButtonAtkAll.CheckedChanged += new System.EventHandler(this.radioButtonAtkAll_CheckedChanged);
-            // 
-            // radioButtonAtkEqual
-            // 
-            this.radioButtonAtkEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonAtkEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonAtkEqual.AutoSize = true;
-            this.radioButtonAtkEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonAtkEqual.Location = new System.Drawing.Point(110, 3);
-            this.radioButtonAtkEqual.Name = "radioButtonAtkEqual";
-            this.radioButtonAtkEqual.Size = new System.Drawing.Size(32, 32);
-            this.radioButtonAtkEqual.TabIndex = 2;
-            this.radioButtonAtkEqual.Text = "=";
-            this.radioButtonAtkEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonAtkEqual.UseVisualStyleBackColor = true;
-            this.radioButtonAtkEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkEqual_CheckedChanged);
-            // 
-            // radioButtonAtkGreaterOrEqual
-            // 
-            this.radioButtonAtkGreaterOrEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonAtkGreaterOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonAtkGreaterOrEqual.AutoSize = true;
-            this.radioButtonAtkGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonAtkGreaterOrEqual.Location = new System.Drawing.Point(74, 3);
-            this.radioButtonAtkGreaterOrEqual.Name = "radioButtonAtkGreaterOrEqual";
-            this.radioButtonAtkGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonAtkGreaterOrEqual.TabIndex = 1;
-            this.radioButtonAtkGreaterOrEqual.Text = "≥";
-            this.radioButtonAtkGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonAtkGreaterOrEqual.UseVisualStyleBackColor = true;
-            this.radioButtonAtkGreaterOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkGreaterOrEqual_CheckedChanged);
-            // 
-            // radioButtonAtkLesserOrEqual
-            // 
-            this.radioButtonAtkLesserOrEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonAtkLesserOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonAtkLesserOrEqual.AutoSize = true;
-            this.radioButtonAtkLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonAtkLesserOrEqual.Location = new System.Drawing.Point(38, 3);
-            this.radioButtonAtkLesserOrEqual.Name = "radioButtonAtkLesserOrEqual";
-            this.radioButtonAtkLesserOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonAtkLesserOrEqual.TabIndex = 0;
-            this.radioButtonAtkLesserOrEqual.Text = "≤";
-            this.radioButtonAtkLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonAtkLesserOrEqual.UseVisualStyleBackColor = true;
-            this.radioButtonAtkLesserOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkLesserOrEqual_CheckedChanged);
-            // 
-            // labelDef
-            // 
-            this.labelDef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDef.AutoSize = true;
-            this.labelDef.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDef.Location = new System.Drawing.Point(42, 156);
-            this.labelDef.Name = "labelDef";
-            this.labelDef.Size = new System.Drawing.Size(85, 22);
-            this.labelDef.TabIndex = 31;
-            this.labelDef.Text = "Defense";
-            // 
-            // comboBoxRace
-            // 
-            this.comboBoxRace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxRace.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxRace.FormattingEnabled = true;
-            this.comboBoxRace.Location = new System.Drawing.Point(3, 380);
-            this.comboBoxRace.Name = "comboBoxRace";
-            this.comboBoxRace.Size = new System.Drawing.Size(163, 25);
-            this.comboBoxRace.TabIndex = 26;
-            // 
-            // labelAtk
-            // 
-            this.labelAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAtk.AutoSize = true;
-            this.labelAtk.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelAtk.Location = new System.Drawing.Point(47, 58);
-            this.labelAtk.Name = "labelAtk";
-            this.labelAtk.Size = new System.Drawing.Size(74, 22);
-            this.labelAtk.TabIndex = 29;
-            this.labelAtk.Text = "Attack";
-            // 
-            // comboBoxAttribute
-            // 
-            this.comboBoxAttribute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxAttribute.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxAttribute.FormattingEnabled = true;
-            this.comboBoxAttribute.Location = new System.Drawing.Point(3, 436);
-            this.comboBoxAttribute.Name = "comboBoxAttribute";
-            this.comboBoxAttribute.Size = new System.Drawing.Size(163, 25);
-            this.comboBoxAttribute.TabIndex = 27;
+            this.panelSpecificSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panelSpecificSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSpecificSearch.Controls.Add(this.panelLevel);
+            this.panelSpecificSearch.Controls.Add(this.panelDef);
+            this.panelSpecificSearch.Controls.Add(this.labelType);
+            this.panelSpecificSearch.Controls.Add(this.panelAtk);
+            this.panelSpecificSearch.Controls.Add(this.labelAttribute);
+            this.panelSpecificSearch.Controls.Add(this.textBoxAtk);
+            this.panelSpecificSearch.Controls.Add(this.labelRace);
+            this.panelSpecificSearch.Controls.Add(this.comboBoxType);
+            this.panelSpecificSearch.Controls.Add(this.labelLevel);
+            this.panelSpecificSearch.Controls.Add(this.labelDef);
+            this.panelSpecificSearch.Controls.Add(this.comboBoxRace);
+            this.panelSpecificSearch.Controls.Add(this.labelAtk);
+            this.panelSpecificSearch.Controls.Add(this.comboBoxAttribute);
+            this.panelSpecificSearch.Controls.Add(this.textBoxDef);
+            this.panelSpecificSearch.Controls.Add(this.textBoxLevel);
+            this.panelSpecificSearch.Location = new System.Drawing.Point(929, 82);
+            this.panelSpecificSearch.Name = "panelSpecificSearch";
+            this.panelSpecificSearch.Size = new System.Drawing.Size(220, 487);
+            this.panelSpecificSearch.TabIndex = 35;
             // 
             // panelLevel
             // 
             this.panelLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelLevel.Controls.Add(this.radioButtonLevelAll);
             this.panelLevel.Controls.Add(this.radioButtonLevelEqual);
             this.panelLevel.Controls.Add(this.radioButtonLevelGreaterOrEqual);
             this.panelLevel.Controls.Add(this.radioButtonLevelLesserOrEqual);
-            this.panelLevel.Location = new System.Drawing.Point(11, 282);
+            this.panelLevel.Controls.Add(this.radioButtonLevelAll);
+            this.panelLevel.Location = new System.Drawing.Point(47, 326);
             this.panelLevel.Name = "panelLevel";
-            this.panelLevel.Size = new System.Drawing.Size(145, 38);
-            this.panelLevel.TabIndex = 24;
-            // 
-            // radioButtonLevelAll
-            // 
-            this.radioButtonLevelAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonLevelAll.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonLevelAll.AutoSize = true;
-            this.radioButtonLevelAll.Checked = true;
-            this.radioButtonLevelAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonLevelAll.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonLevelAll.Name = "radioButtonLevelAll";
-            this.radioButtonLevelAll.Size = new System.Drawing.Size(29, 32);
-            this.radioButtonLevelAll.TabIndex = 35;
-            this.radioButtonLevelAll.TabStop = true;
-            this.radioButtonLevelAll.Text = "*";
-            this.radioButtonLevelAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonLevelAll.UseVisualStyleBackColor = true;
-            this.radioButtonLevelAll.CheckedChanged += new System.EventHandler(this.radioButtonLevelAll_CheckedChanged);
+            this.panelLevel.Size = new System.Drawing.Size(124, 31);
+            this.panelLevel.TabIndex = 51;
             // 
             // radioButtonLevelEqual
             // 
@@ -446,16 +216,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLevelEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonLevelEqual.AutoSize = true;
-            this.radioButtonLevelEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonLevelEqual.Location = new System.Drawing.Point(110, 3);
+            this.radioButtonLevelEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonLevelEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonLevelEqual.Location = new System.Drawing.Point(96, 3);
             this.radioButtonLevelEqual.Name = "radioButtonLevelEqual";
-            this.radioButtonLevelEqual.Size = new System.Drawing.Size(32, 32);
-            this.radioButtonLevelEqual.TabIndex = 2;
+            this.radioButtonLevelEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonLevelEqual.TabIndex = 54;
             this.radioButtonLevelEqual.Text = "=";
             this.radioButtonLevelEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelEqual.UseVisualStyleBackColor = true;
-            this.radioButtonLevelEqual.CheckedChanged += new System.EventHandler(this.radioButtonEqual_CheckedChanged);
+            this.radioButtonLevelEqual.CheckedChanged += new System.EventHandler(this.radioButtonLevelEqual_CheckedChanged);
             // 
             // radioButtonLevelGreaterOrEqual
             // 
@@ -463,16 +233,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLevelGreaterOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonLevelGreaterOrEqual.AutoSize = true;
-            this.radioButtonLevelGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonLevelGreaterOrEqual.Location = new System.Drawing.Point(74, 3);
+            this.radioButtonLevelGreaterOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonLevelGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonLevelGreaterOrEqual.Location = new System.Drawing.Point(65, 3);
             this.radioButtonLevelGreaterOrEqual.Name = "radioButtonLevelGreaterOrEqual";
-            this.radioButtonLevelGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonLevelGreaterOrEqual.TabIndex = 1;
+            this.radioButtonLevelGreaterOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonLevelGreaterOrEqual.TabIndex = 53;
             this.radioButtonLevelGreaterOrEqual.Text = "≥";
             this.radioButtonLevelGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelGreaterOrEqual.UseVisualStyleBackColor = true;
-            this.radioButtonLevelGreaterOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonGreaterOrEqual_CheckedChanged);
+            this.radioButtonLevelGreaterOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonLevelGreaterOrEqual_CheckedChanged);
             // 
             // radioButtonLevelLesserOrEqual
             // 
@@ -480,73 +250,49 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLevelLesserOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonLevelLesserOrEqual.AutoSize = true;
-            this.radioButtonLevelLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonLevelLesserOrEqual.Location = new System.Drawing.Point(38, 3);
+            this.radioButtonLevelLesserOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonLevelLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonLevelLesserOrEqual.Location = new System.Drawing.Point(34, 3);
             this.radioButtonLevelLesserOrEqual.Name = "radioButtonLevelLesserOrEqual";
-            this.radioButtonLevelLesserOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonLevelLesserOrEqual.TabIndex = 0;
+            this.radioButtonLevelLesserOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonLevelLesserOrEqual.TabIndex = 52;
             this.radioButtonLevelLesserOrEqual.Text = "≤";
             this.radioButtonLevelLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonLevelLesserOrEqual.UseVisualStyleBackColor = true;
             this.radioButtonLevelLesserOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonLevelLesserOrEqual_CheckedChanged);
             // 
-            // textBoxDef
+            // radioButtonLevelAll
             // 
-            this.textBoxDef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.radioButtonLevelAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDef.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxDef.Location = new System.Drawing.Point(3, 228);
-            this.textBoxDef.Name = "textBoxDef";
-            this.textBoxDef.Size = new System.Drawing.Size(163, 23);
-            this.textBoxDef.TabIndex = 23;
-            this.textBoxDef.Text = "0";
-            // 
-            // textBoxLevel
-            // 
-            this.textBoxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLevel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLevel.Location = new System.Drawing.Point(3, 326);
-            this.textBoxLevel.Name = "textBoxLevel";
-            this.textBoxLevel.Size = new System.Drawing.Size(163, 23);
-            this.textBoxLevel.TabIndex = 23;
-            this.textBoxLevel.Text = "0";
+            this.radioButtonLevelAll.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonLevelAll.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonLevelAll.Checked = true;
+            this.radioButtonLevelAll.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonLevelAll.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonLevelAll.Name = "radioButtonLevelAll";
+            this.radioButtonLevelAll.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonLevelAll.TabIndex = 51;
+            this.radioButtonLevelAll.TabStop = true;
+            this.radioButtonLevelAll.Text = "*";
+            this.radioButtonLevelAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonLevelAll.UseVisualStyleBackColor = true;
+            this.radioButtonLevelAll.CheckedChanged += new System.EventHandler(this.radioButtonLevelAll_CheckedChanged);
             // 
             // panelDef
             // 
             this.panelDef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDef.Controls.Add(this.radioButtonDefAll);
             this.panelDef.Controls.Add(this.radioButtonDefEqual);
             this.panelDef.Controls.Add(this.radioButtonDefGreaterOrEqual);
             this.panelDef.Controls.Add(this.radioButtonDefLesserOrEqual);
-            this.panelDef.Location = new System.Drawing.Point(11, 184);
+            this.panelDef.Controls.Add(this.radioButtonDefAll);
+            this.panelDef.Location = new System.Drawing.Point(48, 241);
             this.panelDef.Name = "panelDef";
-            this.panelDef.Size = new System.Drawing.Size(145, 38);
-            this.panelDef.TabIndex = 24;
-            // 
-            // radioButtonDefAll
-            // 
-            this.radioButtonDefAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonDefAll.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonDefAll.AutoSize = true;
-            this.radioButtonDefAll.Checked = true;
-            this.radioButtonDefAll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonDefAll.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonDefAll.Name = "radioButtonDefAll";
-            this.radioButtonDefAll.Size = new System.Drawing.Size(29, 32);
-            this.radioButtonDefAll.TabIndex = 3;
-            this.radioButtonDefAll.TabStop = true;
-            this.radioButtonDefAll.Text = "*";
-            this.radioButtonDefAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonDefAll.UseVisualStyleBackColor = true;
-            this.radioButtonDefAll.CheckedChanged += new System.EventHandler(this.radioButtonDefAll_CheckedChanged);
+            this.panelDef.Size = new System.Drawing.Size(124, 31);
+            this.panelDef.TabIndex = 47;
             // 
             // radioButtonDefEqual
             // 
@@ -554,12 +300,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDefEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonDefEqual.AutoSize = true;
-            this.radioButtonDefEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonDefEqual.Location = new System.Drawing.Point(110, 3);
+            this.radioButtonDefEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonDefEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonDefEqual.Location = new System.Drawing.Point(96, 3);
             this.radioButtonDefEqual.Name = "radioButtonDefEqual";
-            this.radioButtonDefEqual.Size = new System.Drawing.Size(32, 32);
-            this.radioButtonDefEqual.TabIndex = 2;
+            this.radioButtonDefEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonDefEqual.TabIndex = 50;
             this.radioButtonDefEqual.Text = "=";
             this.radioButtonDefEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefEqual.UseVisualStyleBackColor = true;
@@ -571,12 +317,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDefGreaterOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonDefGreaterOrEqual.AutoSize = true;
-            this.radioButtonDefGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonDefGreaterOrEqual.Location = new System.Drawing.Point(74, 3);
+            this.radioButtonDefGreaterOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonDefGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonDefGreaterOrEqual.Location = new System.Drawing.Point(65, 3);
             this.radioButtonDefGreaterOrEqual.Name = "radioButtonDefGreaterOrEqual";
-            this.radioButtonDefGreaterOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonDefGreaterOrEqual.TabIndex = 1;
+            this.radioButtonDefGreaterOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonDefGreaterOrEqual.TabIndex = 49;
             this.radioButtonDefGreaterOrEqual.Text = "≥";
             this.radioButtonDefGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefGreaterOrEqual.UseVisualStyleBackColor = true;
@@ -588,26 +334,277 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDefLesserOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonDefLesserOrEqual.AutoSize = true;
-            this.radioButtonDefLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonDefLesserOrEqual.Location = new System.Drawing.Point(38, 3);
+            this.radioButtonDefLesserOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonDefLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonDefLesserOrEqual.Location = new System.Drawing.Point(34, 3);
             this.radioButtonDefLesserOrEqual.Name = "radioButtonDefLesserOrEqual";
-            this.radioButtonDefLesserOrEqual.Size = new System.Drawing.Size(30, 32);
-            this.radioButtonDefLesserOrEqual.TabIndex = 0;
+            this.radioButtonDefLesserOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonDefLesserOrEqual.TabIndex = 48;
             this.radioButtonDefLesserOrEqual.Text = "≤";
             this.radioButtonDefLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonDefLesserOrEqual.UseVisualStyleBackColor = true;
             this.radioButtonDefLesserOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonDefLesserOrEqual_CheckedChanged);
             // 
-            // buttonRemoveCard
+            // radioButtonDefAll
             // 
-            this.buttonRemoveCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.radioButtonDefAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonDefAll.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonDefAll.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonDefAll.Checked = true;
+            this.radioButtonDefAll.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonDefAll.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonDefAll.Name = "radioButtonDefAll";
+            this.radioButtonDefAll.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonDefAll.TabIndex = 47;
+            this.radioButtonDefAll.TabStop = true;
+            this.radioButtonDefAll.Text = "*";
+            this.radioButtonDefAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonDefAll.UseVisualStyleBackColor = true;
+            this.radioButtonDefAll.CheckedChanged += new System.EventHandler(this.radioButtonDefAll_CheckedChanged);
+            // 
+            // labelType
+            // 
+            this.labelType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelType.AutoSize = true;
+            this.labelType.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelType.Location = new System.Drawing.Point(88, 0);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(42, 20);
+            this.labelType.TabIndex = 28;
+            this.labelType.Text = "Type";
+            // 
+            // panelAtk
+            // 
+            this.panelAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelAtk.Controls.Add(this.radioButtonAtkEqual);
+            this.panelAtk.Controls.Add(this.radioButtonAtkGreaterOrEqual);
+            this.panelAtk.Controls.Add(this.radioButtonAtkLesserOrEqual);
+            this.panelAtk.Controls.Add(this.radioButtonAtkAll);
+            this.panelAtk.Location = new System.Drawing.Point(50, 156);
+            this.panelAtk.Name = "panelAtk";
+            this.panelAtk.Size = new System.Drawing.Size(124, 31);
+            this.panelAtk.TabIndex = 42;
+            // 
+            // radioButtonAtkEqual
+            // 
+            this.radioButtonAtkEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonAtkEqual.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAtkEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonAtkEqual.Location = new System.Drawing.Point(96, 3);
+            this.radioButtonAtkEqual.Name = "radioButtonAtkEqual";
+            this.radioButtonAtkEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonAtkEqual.TabIndex = 46;
+            this.radioButtonAtkEqual.Text = "=";
+            this.radioButtonAtkEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkEqual.UseVisualStyleBackColor = true;
+            this.radioButtonAtkEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkEqual_CheckedChanged);
+            // 
+            // radioButtonAtkGreaterOrEqual
+            // 
+            this.radioButtonAtkGreaterOrEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonAtkGreaterOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAtkGreaterOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkGreaterOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonAtkGreaterOrEqual.Location = new System.Drawing.Point(65, 3);
+            this.radioButtonAtkGreaterOrEqual.Name = "radioButtonAtkGreaterOrEqual";
+            this.radioButtonAtkGreaterOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonAtkGreaterOrEqual.TabIndex = 45;
+            this.radioButtonAtkGreaterOrEqual.Text = "≥";
+            this.radioButtonAtkGreaterOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkGreaterOrEqual.UseVisualStyleBackColor = true;
+            this.radioButtonAtkGreaterOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkGreaterOrEqual_CheckedChanged);
+            // 
+            // radioButtonAtkLesserOrEqual
+            // 
+            this.radioButtonAtkLesserOrEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonAtkLesserOrEqual.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAtkLesserOrEqual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkLesserOrEqual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonAtkLesserOrEqual.Location = new System.Drawing.Point(34, 3);
+            this.radioButtonAtkLesserOrEqual.Name = "radioButtonAtkLesserOrEqual";
+            this.radioButtonAtkLesserOrEqual.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonAtkLesserOrEqual.TabIndex = 44;
+            this.radioButtonAtkLesserOrEqual.Text = "≤";
+            this.radioButtonAtkLesserOrEqual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkLesserOrEqual.UseVisualStyleBackColor = true;
+            this.radioButtonAtkLesserOrEqual.CheckedChanged += new System.EventHandler(this.radioButtonAtkLesserOrEqual_CheckedChanged);
+            // 
+            // radioButtonAtkAll
+            // 
+            this.radioButtonAtkAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonAtkAll.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAtkAll.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkAll.Checked = true;
+            this.radioButtonAtkAll.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonAtkAll.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonAtkAll.Name = "radioButtonAtkAll";
+            this.radioButtonAtkAll.Size = new System.Drawing.Size(25, 25);
+            this.radioButtonAtkAll.TabIndex = 43;
+            this.radioButtonAtkAll.TabStop = true;
+            this.radioButtonAtkAll.Text = "*";
+            this.radioButtonAtkAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAtkAll.UseVisualStyleBackColor = true;
+            this.radioButtonAtkAll.CheckedChanged += new System.EventHandler(this.radioButtonAtkAll_CheckedChanged);
+            // 
+            // labelAttribute
+            // 
+            this.labelAttribute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAttribute.AutoSize = true;
+            this.labelAttribute.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAttribute.Location = new System.Drawing.Point(73, 102);
+            this.labelAttribute.Name = "labelAttribute";
+            this.labelAttribute.Size = new System.Drawing.Size(72, 20);
+            this.labelAttribute.TabIndex = 34;
+            this.labelAttribute.Text = "Attribute";
+            // 
+            // textBoxAtk
+            // 
+            this.textBoxAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAtk.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAtk.Location = new System.Drawing.Point(3, 213);
+            this.textBoxAtk.Name = "textBoxAtk";
+            this.textBoxAtk.Size = new System.Drawing.Size(212, 22);
+            this.textBoxAtk.TabIndex = 20;
+            this.textBoxAtk.Text = "0";
+            // 
+            // labelRace
+            // 
+            this.labelRace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelRace.AutoSize = true;
+            this.labelRace.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelRace.Location = new System.Drawing.Point(85, 51);
+            this.labelRace.Name = "labelRace";
+            this.labelRace.Size = new System.Drawing.Size(48, 20);
+            this.labelRace.TabIndex = 33;
+            this.labelRace.Text = "Race";
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxType.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(3, 23);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(212, 25);
+            this.comboBoxType.TabIndex = 21;
+            // 
+            // labelLevel
+            // 
+            this.labelLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelLevel.Location = new System.Drawing.Point(85, 360);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(49, 20);
+            this.labelLevel.TabIndex = 32;
+            this.labelLevel.Text = "Level";
+            // 
+            // labelDef
+            // 
+            this.labelDef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDef.AutoSize = true;
+            this.labelDef.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDef.Location = new System.Drawing.Point(75, 275);
+            this.labelDef.Name = "labelDef";
+            this.labelDef.Size = new System.Drawing.Size(70, 20);
+            this.labelDef.TabIndex = 31;
+            this.labelDef.Text = "Defense";
+            // 
+            // comboBoxRace
+            // 
+            this.comboBoxRace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxRace.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxRace.FormattingEnabled = true;
+            this.comboBoxRace.Location = new System.Drawing.Point(3, 74);
+            this.comboBoxRace.Name = "comboBoxRace";
+            this.comboBoxRace.Size = new System.Drawing.Size(212, 25);
+            this.comboBoxRace.TabIndex = 26;
+            // 
+            // labelAtk
+            // 
+            this.labelAtk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAtk.AutoSize = true;
+            this.labelAtk.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAtk.Location = new System.Drawing.Point(80, 190);
+            this.labelAtk.Name = "labelAtk";
+            this.labelAtk.Size = new System.Drawing.Size(58, 20);
+            this.labelAtk.TabIndex = 29;
+            this.labelAtk.Text = "Attack";
+            // 
+            // comboBoxAttribute
+            // 
+            this.comboBoxAttribute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAttribute.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxAttribute.FormattingEnabled = true;
+            this.comboBoxAttribute.Location = new System.Drawing.Point(3, 125);
+            this.comboBoxAttribute.Name = "comboBoxAttribute";
+            this.comboBoxAttribute.Size = new System.Drawing.Size(212, 25);
+            this.comboBoxAttribute.TabIndex = 27;
+            // 
+            // textBoxDef
+            // 
+            this.textBoxDef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDef.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxDef.Location = new System.Drawing.Point(4, 298);
+            this.textBoxDef.Name = "textBoxDef";
+            this.textBoxDef.Size = new System.Drawing.Size(212, 22);
+            this.textBoxDef.TabIndex = 23;
+            this.textBoxDef.Text = "0";
+            // 
+            // textBoxLevel
+            // 
+            this.textBoxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLevel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxLevel.Location = new System.Drawing.Point(3, 383);
+            this.textBoxLevel.Name = "textBoxLevel";
+            this.textBoxLevel.Size = new System.Drawing.Size(212, 22);
+            this.textBoxLevel.TabIndex = 23;
+            this.textBoxLevel.Text = "0";
+            // 
+            // buttonRemoveCard
+            // 
+            this.buttonRemoveCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRemoveCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRemoveCard.Location = new System.Drawing.Point(980, 36);
             this.buttonRemoveCard.Name = "buttonRemoveCard";
-            this.buttonRemoveCard.Size = new System.Drawing.Size(71, 41);
+            this.buttonRemoveCard.Size = new System.Drawing.Size(71, 40);
             this.buttonRemoveCard.TabIndex = 14;
             this.buttonRemoveCard.Text = "Remove";
             this.buttonRemoveCard.UseVisualStyleBackColor = true;
@@ -615,13 +612,11 @@
             // 
             // buttonAddCard
             // 
-            this.buttonAddCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddCard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddCard.Location = new System.Drawing.Point(1057, 36);
             this.buttonAddCard.Name = "buttonAddCard";
-            this.buttonAddCard.Size = new System.Drawing.Size(43, 41);
+            this.buttonAddCard.Size = new System.Drawing.Size(43, 40);
             this.buttonAddCard.TabIndex = 13;
             this.buttonAddCard.Text = "Add";
             this.buttonAddCard.UseVisualStyleBackColor = true;
@@ -630,9 +625,7 @@
             // flowLayoutPanelDeck
             // 
             this.flowLayoutPanelDeck.AllowDrop = true;
-            this.flowLayoutPanelDeck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelDeck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanelDeck.AutoScroll = true;
             this.flowLayoutPanelDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDeck.Location = new System.Drawing.Point(236, 82);
@@ -655,15 +648,15 @@
             this.flowLayoutPanelCards.AutoScroll = true;
             this.flowLayoutPanelCards.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelCards.Location = new System.Drawing.Point(1106, 82);
+            this.flowLayoutPanelCards.Location = new System.Drawing.Point(1155, 82);
             this.flowLayoutPanelCards.Name = "flowLayoutPanelCards";
-            this.flowLayoutPanelCards.Size = new System.Drawing.Size(131, 487);
+            this.flowLayoutPanelCards.Size = new System.Drawing.Size(82, 487);
             this.flowLayoutPanelCards.TabIndex = 9;
             this.flowLayoutPanelCards.WrapContents = false;
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearch.Location = new System.Drawing.Point(1106, 3);
             this.textBoxSearch.Name = "textBoxSearch";
@@ -672,11 +665,11 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSearch.Location = new System.Drawing.Point(1106, 36);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(131, 41);
+            this.buttonSearch.Size = new System.Drawing.Size(131, 40);
             this.buttonSearch.TabIndex = 5;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -696,14 +689,11 @@
             this.panelYugioh.PerformLayout();
             this.panelPage.ResumeLayout(false);
             this.panelPage.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panelAtk.ResumeLayout(false);
-            this.panelAtk.PerformLayout();
+            this.panelSpecificSearch.ResumeLayout(false);
+            this.panelSpecificSearch.PerformLayout();
             this.panelLevel.ResumeLayout(false);
-            this.panelLevel.PerformLayout();
             this.panelDef.ResumeLayout(false);
-            this.panelDef.PerformLayout();
+            this.panelAtk.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -718,40 +708,40 @@
         private FlowLayoutPanel flowLayoutPanelDeck;
         private Button buttonAddCard;
         private Button buttonRemoveCard;
-        private Panel panelAtk;
         private ComboBox comboBoxType;
         private TextBox textBoxAtk;
         private ComboBox comboBoxAttribute;
         private ComboBox comboBoxRace;
         private Label labelType;
-        private RadioButton radioButtonAtkLesserOrEqual;
-        private RadioButton radioButtonAtkEqual;
-        private RadioButton radioButtonAtkGreaterOrEqual;
-        private Panel panelLevel;
-        private RadioButton radioButtonLevelEqual;
-        private RadioButton radioButtonLevelGreaterOrEqual;
-        private RadioButton radioButtonLevelLesserOrEqual;
         private TextBox textBoxLevel;
-        private Panel panelDef;
-        private RadioButton radioButtonDefEqual;
-        private RadioButton radioButtonDefGreaterOrEqual;
-        private RadioButton radioButtonDefLesserOrEqual;
         private TextBox textBoxDef;
         private Label labelAtk;
         private Label labelDef;
         private Label labelLevel;
         private Label labelAttribute;
         private Label labelRace;
-        private Panel panel1;
-        private RadioButton radioButtonDefAll;
-        private RadioButton radioButtonAtkAll;
-        private RadioButton radioButtonLevelAll;
+        private Panel panelSpecificSearch;
         private Button buttonPrevious;
         private Button buttonNext;
         private Label labelTotalPages;
         private Label labelCurrentPage;
-        private Label label1;
         private Label labelCardsInSearchResult;
         private Panel panelPage;
+        private Label labelPageSeparator;
+        private Panel panelAtk;
+        private RadioButton radioButtonAtkAll;
+        private RadioButton radioButtonAtkEqual;
+        private RadioButton radioButtonAtkGreaterOrEqual;
+        private RadioButton radioButtonAtkLesserOrEqual;
+        private Panel panelDef;
+        private RadioButton radioButtonDefEqual;
+        private RadioButton radioButtonDefGreaterOrEqual;
+        private RadioButton radioButtonDefLesserOrEqual;
+        private RadioButton radioButtonDefAll;
+        private Panel panelLevel;
+        private RadioButton radioButtonLevelEqual;
+        private RadioButton radioButtonLevelGreaterOrEqual;
+        private RadioButton radioButtonLevelLesserOrEqual;
+        private RadioButton radioButtonLevelAll;
     }
 }

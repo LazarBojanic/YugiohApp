@@ -4,16 +4,22 @@ namespace YugiohApp.view {
     public partial class CardUserControl : UserControl {
         public Card card { get; set; }
         private static DeckBuilderForm deckBuilderForm = (DeckBuilderForm)Form.ActiveForm;
-        public CardUserControl(Card parCard) {
+        public CardUserControl(Card parCard, bool smallImage) {
             InitializeComponent();
             this.card = parCard;
-            pictureBoxCard.Image = card.image;
+            if (smallImage) {
+                pictureBoxCard.Image = card.smallImage;
+            }
+            else {
+                pictureBoxCard.Image = card.image;
+            }
         }
         public CardUserControl() {
 
         }
 
         private void pictureBoxCard_MouseClick(object sender, MouseEventArgs e) {
+            card.loadImage();
             deckBuilderForm.getPanelCard().Controls.Clear();
             deckBuilderForm.getPanelCard().Controls.Add(new CardDetailsUserControl(card));
             deckBuilderForm.selectedCard = card;

@@ -29,6 +29,9 @@
             // 
             // buttonQuiz
             // 
+            this.buttonQuiz.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonQuiz.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonQuiz.Location = new System.Drawing.Point(94, 141);
             this.buttonQuiz.Name = "buttonQuiz";
@@ -40,6 +43,9 @@
             // 
             // buttonDeckBuilder
             // 
+            this.buttonDeckBuilder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeckBuilder.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDeckBuilder.Location = new System.Drawing.Point(411, 141);
             this.buttonDeckBuilder.Name = "buttonDeckBuilder";

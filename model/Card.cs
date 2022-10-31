@@ -34,6 +34,23 @@
             this.priceAmazon = priceAmazon;
             this.priceCoolStuffInc = priceCoolStuffInc;
         }
+        public Card(int id, string name, string type, string desc, int atk, int def, int level, string race, string attribute, decimal priceCardMarket, decimal priceTCGPlayer, decimal priceEbay, decimal priceAmazon, decimal priceCoolStuffInc) {
+            this.id = id;
+            this.name = name;
+            this.type = type;
+            this.desc = desc;
+            this.atk = atk;
+            this.def = def;
+            this.level = level;
+            this.race = race;
+            this.attribute = attribute;
+            this.priceCardMarket = priceCardMarket;
+            this.priceTCGPlayer = priceTCGPlayer;
+            this.priceEbay = priceEbay;
+            this.priceAmazon = priceAmazon;
+            this.priceCoolStuffInc = priceCoolStuffInc;
+        }
+
         public Card(int id, string name) {
             this.id = id;
             this.name = name;
@@ -42,11 +59,11 @@
 
         }
         public void loadImage() {
-            image = Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{id}_image.jpg");
+            image = new Bitmap(Image.FromFile($"{Properties.Settings.Default.cardImagesPath}{id}_image.jpg"), 215, 316);
 
         }
         public void loadSmallImage() {
-            smallImage = Image.FromFile($"{Properties.Settings.Default.smallCardImagesPath}{id}_smallImage.png");
+            smallImage = new Bitmap(Image.FromFile($"{Properties.Settings.Default.smallCardImagesPath}{id}_smallImage.png"), 50, 73);
         }
     }
 }
