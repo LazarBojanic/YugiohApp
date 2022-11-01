@@ -2,6 +2,7 @@
 using System.Globalization;
 using YugiohApp.model;
 using YugiohApp.view;
+using static YugiohApp.util.SqlUtil;
 
 namespace YugiohApp.util {
     public static class Util {
@@ -75,6 +76,27 @@ namespace YugiohApp.util {
                 }
             }
             return chunks;
+        }
+        public static Deck loadDeck(string deckName) {
+            List<Card> cardList = new List<Card>();
+            string[] lines = new string[] {};
+            try {
+                lines = File.ReadAllLines(Properties.Settings.Default.decksPath + deckName + ".ydk");
+            }
+            catch(FileNotFoundException) {
+                return null;
+            }
+            foreach (string line in lines) {
+                cardList.Add(getCardById(line));
+            }
+            return new Deck(deckName, cardList);
+        }
+        public static void populateFlowLayoutPanelDeckWithDeckCards(Deck deck, FlowLayoutPanel flowLayoutPanelDeck) {
+            flowLayoutPanelDeck.Controls.Clear();
+            foreach(Card card in deck.cardList) {
+                card.loadImage();
+                flowLayoutPanelDeck.Controls.Add(new CardUserControl(card, false));
+            }
         }
     }
 }

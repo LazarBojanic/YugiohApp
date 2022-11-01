@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace YugiohApp.view {
     public partial class DeckBuilderForm : Form {
+        public Deck deck { get; set; }
         public static List<Card> cardListSearchResult;
         public List<List<Card>> chunkedList;
         public int numberOfSearchChunks;
@@ -55,15 +56,22 @@ namespace YugiohApp.view {
             populateCardTypeComboBox(comboBoxType);
             populateCardRaceComboBox(comboBoxRace);
             populateCardAttributeComboBox(comboBoxAttribute);
+            deck = loadDeck("testDeck");
+            if (deck == null) {
+                flowLayoutPanelDeck.Controls.Clear();
+            }
+            else {
+                populateFlowLayoutPanelDeckWithDeckCards(deck, flowLayoutPanelDeck);
+            }
         }
         private void buttonAddCard_Click(object sender, EventArgs e) {
-            Deck.getInstance().cardList.Add(selectedCard);
+            deck.cardList.Add(selectedCard);
             CardUserControl cardUserControlToAdd = new CardUserControl(selectedCard, false);
             cardUserControlToAdd.Size = new Size(74, 108);
             flowLayoutPanelDeck.Controls.Add(cardUserControlToAdd);
         }
         private void buttonRemoveCard_Click(object sender, EventArgs e) {
-            Deck.getInstance().cardList.Remove(selectedCard);
+            deck.cardList.Remove(selectedCard);
             foreach (CardUserControl cardUserControl in flowLayoutPanelDeck.Controls) {
                 if (cardUserControl.card.id == selectedCard.id) {
                     flowLayoutPanelDeck.Controls.Remove(cardUserControl);

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Data.Common;
 using System.Data.OleDb;
 using YugiohApp.model;
@@ -196,7 +197,6 @@ namespace YugiohApp.util {
         public static async Task<List<Card>> getSimpleCardListSearchResult() {
             List<Card> cardListSearchResult = new List<Card>();
             OleDbConnection connection = getConnection();
-            OleDbConnection cardSetConnection = getConnection();
             DataTable dataTable = new DataTable();
             connection.Open();
             string query = "SELECT [cardId], [cardName], [cardType], [cardDesc], [cardAtk], [cardDef], " +
@@ -267,7 +267,6 @@ namespace YugiohApp.util {
             DbDataReader resultSet = await command.ExecuteReaderAsync();
             dataTable.Load(resultSet);
             connection.Close();
-            cardSetConnection.Open();
             foreach (DataRow dataRow in dataTable.Rows) {
                 Card card = new Card(
                     Convert.ToInt32(dataRow["cardId"]),
@@ -287,8 +286,38 @@ namespace YugiohApp.util {
                 card.loadSmallImage();
                 cardListSearchResult.Add(card);
             }
-            cardSetConnection.Close();
             return cardListSearchResult;
+        }
+        public static Card getCardById(string cardId) {
+            OleDbConnection connection = getConnection();
+            connection.Open();
+            DataTable dataTable = new DataTable();
+            string query = "SELECT [cardId], [cardName], [cardType], [cardDesc], [cardAtk], [cardDef], " +
+                "[cardLevel], [cardRace], [cardAttribute], [cardAttribute], [cardPriceCardMarket], [cardPriceTCGPlayer], " +
+                "[cardPriceEbay], [cardPriceAmazon], [cardPriceCoolStuffInc] FROM [card] " +
+                "WHERE [cardId] = @cardId";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            command.Parameters.AddWithValue("@cardId", cardId);
+            dataTable.Load(command.ExecuteReader());
+            connection.Close();
+            foreach(DataRow dataRow in dataTable.Rows) {
+                return new Card(
+                    Convert.ToInt32(dataRow["cardId"]),
+                    Convert.ToString(dataRow["cardName"]),
+                    Convert.ToString(dataRow["cardType"]),
+                    Convert.ToString(dataRow["cardDesc"]),
+                    Convert.ToInt32(dataRow["cardAtk"]),
+                    Convert.ToInt32(dataRow["cardDef"]),
+                    Convert.ToInt32(dataRow["cardLevel"]),
+                    Convert.ToString(dataRow["cardRace"]),
+                    Convert.ToString(dataRow["cardAttribute"]),
+                    Convert.ToDecimal(dataRow["cardPriceCardMarket"]),
+                    Convert.ToDecimal(dataRow["cardPriceTCGPlayer"]),
+                    Convert.ToDecimal(dataRow["cardPriceEbay"]),
+                    Convert.ToDecimal(dataRow["cardPriceAmazon"]),
+                    Convert.ToDecimal(dataRow["cardPriceCoolStuffInc"]));
+            }
+            return null;
         }
     }
 }

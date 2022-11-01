@@ -19,7 +19,10 @@
       <Value Profile="(Default)">..\\..\\..\\..\\smallCardImages\\</Value>
     </Setting>
     <Setting Name="soundsPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">..\\..\\..\\..\sounds\\</Value>
+      <Value Profile="(Default)">..\\..\\..\\..\\sounds\\</Value>
+    </Setting>
+    <Setting Name="decksPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">..\\..\\..\\..\\decks\\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

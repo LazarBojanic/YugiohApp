@@ -62,10 +62,19 @@ namespace YugiohApp.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\sounds\\\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\\\sounds\\\\")]
         public string soundsPath {
             get {
                 return ((string)(this["soundsPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\\\..\\\\..\\\\..\\\\decks\\\\")]
+        public string decksPath {
+            get {
+                return ((string)(this["decksPath"]));
             }
         }
     }
