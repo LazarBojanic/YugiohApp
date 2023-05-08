@@ -61,14 +61,15 @@ namespace YugiohApp.view {
                 flowLayoutPanelDeck.Controls.Clear();
             }
             else {
+                deck.sortDeck();
                 populateFlowLayoutPanelDeckWithDeckCards(deck, flowLayoutPanelDeck);
             }
         }
         private void buttonAddCard_Click(object sender, EventArgs e) {
             deck.cardList.Add(selectedCard);
-            CardUserControl cardUserControlToAdd = new CardUserControl(selectedCard, false);
-            cardUserControlToAdd.Size = new Size(74, 108);
+            CardUserControl cardUserControlToAdd = new CardUserControl(selectedCard, true, 57, 83);
             flowLayoutPanelDeck.Controls.Add(cardUserControlToAdd);
+            //panelSideDeck.Controls.Add(cardUserControlToAdd);
         }
         private void buttonRemoveCard_Click(object sender, EventArgs e) {
             deck.cardList.Remove(selectedCard);

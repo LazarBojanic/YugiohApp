@@ -66,6 +66,8 @@
             this.flowLayoutPanelCards = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.panelSideDeck = new System.Windows.Forms.Panel();
+            this.panelExtraDeck = new System.Windows.Forms.Panel();
             this.panelYugioh.SuspendLayout();
             this.panelPage.SuspendLayout();
             this.panelSpecificSearch.SuspendLayout();
@@ -77,6 +79,8 @@
             // panelYugioh
             // 
             this.panelYugioh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelYugioh.Controls.Add(this.panelExtraDeck);
+            this.panelYugioh.Controls.Add(this.panelSideDeck);
             this.panelYugioh.Controls.Add(this.panelPage);
             this.panelYugioh.Controls.Add(this.panelSpecificSearch);
             this.panelYugioh.Controls.Add(this.buttonRemoveCard);
@@ -630,7 +634,7 @@
             this.flowLayoutPanelDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDeck.Location = new System.Drawing.Point(236, 82);
             this.flowLayoutPanelDeck.Name = "flowLayoutPanelDeck";
-            this.flowLayoutPanelDeck.Size = new System.Drawing.Size(687, 569);
+            this.flowLayoutPanelDeck.Size = new System.Drawing.Size(687, 356);
             this.flowLayoutPanelDeck.TabIndex = 12;
             // 
             // panelCard
@@ -674,6 +678,22 @@
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // panelSideDeck
+            // 
+            this.panelSideDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSideDeck.Location = new System.Drawing.Point(236, 444);
+            this.panelSideDeck.Name = "panelSideDeck";
+            this.panelSideDeck.Size = new System.Drawing.Size(687, 89);
+            this.panelSideDeck.TabIndex = 42;
+            // 
+            // panelExtraDeck
+            // 
+            this.panelExtraDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExtraDeck.Location = new System.Drawing.Point(236, 539);
+            this.panelExtraDeck.Name = "panelExtraDeck";
+            this.panelExtraDeck.Size = new System.Drawing.Size(687, 89);
+            this.panelExtraDeck.TabIndex = 43;
             // 
             // DeckBuilderForm
             // 
@@ -743,5 +763,7 @@
         private RadioButton radioButtonLevelGreaterOrEqual;
         private RadioButton radioButtonLevelLesserOrEqual;
         private RadioButton radioButtonLevelAll;
+        private Panel panelSideDeck;
+        private Panel panelExtraDeck;
     }
 }

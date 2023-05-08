@@ -91,11 +91,13 @@ namespace YugiohApp.util {
             }
             return new Deck(deckName, cardList);
         }
+        
         public static void populateFlowLayoutPanelDeckWithDeckCards(Deck deck, FlowLayoutPanel flowLayoutPanelDeck) {
             flowLayoutPanelDeck.Controls.Clear();
             foreach(Card card in deck.cardList) {
                 card.loadImage();
-                flowLayoutPanelDeck.Controls.Add(new CardUserControl(card, false));
+                card.loadSmallImage();
+                flowLayoutPanelDeck.Controls.Add(new CardUserControl(card, true, 57, 83));
             }
         }
     }

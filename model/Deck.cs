@@ -14,5 +14,9 @@
             this.name = name;
             this.cardList = cardList;
         }
+        public Deck sortDeck() {
+            cardList.Sort((x, y) => x.type.CompareTo(y.type));
+            return this;
+        }
     }
 }
